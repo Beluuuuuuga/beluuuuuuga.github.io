@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HUGO on My New Hugo Site</title>
+    <link>https://beluuuuuuga.github.io/tags/hugo/</link>
+    <description>Recent content in HUGO on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Jan 2020 21:16:58 +0900</lastBuildDate>
+    
+	<atom:link href="https://beluuuuuuga.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Good to Great</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</link>
+      <pubDate>Wed, 22 Jan 2020 21:16:58 +0900</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
