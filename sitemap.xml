@@ -3,33 +3,78 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
+    <loc>https://beluuuuuuga.github.io/categories/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/categories/computervision/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://beluuuuuuga.github.io/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://beluuuuuuga.github.io/tags/hugo/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/post/2020/01/23/hugo/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/tags/keras/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/categories/machinelearning/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/tags/opencv/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/post/2020/01/23/opencv4/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://beluuuuuuga.github.io/post/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/categories/soft/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://beluuuuuuga.github.io/tags/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://beluuuuuuga.github.io/categories/</loc>
-    <lastmod>2018-08-30T00:00:00+00:00</lastmod>
+    <loc>https://beluuuuuuga.github.io/tags/tensorflow/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</loc>
+    <lastmod>2020-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</loc>
+    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
   </url>
   
   <url>

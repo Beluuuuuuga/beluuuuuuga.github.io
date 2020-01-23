@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>Categories | My New Hugo Site</title>
+    <title>OpenCV4 | My New Hugo Site</title>
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
@@ -28,7 +28,7 @@
       </li>
       
       
-      <li class="pull-left current">
+      <li class="pull-left ">
         <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
       </li>
       
@@ -54,41 +54,70 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">OpenCV4</span></h1>
 
-<h1>Categories</h1>
+<h2 class="date">2020/01/23</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/computervision">ComputerVision</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/opencv">OpenCV</a> 
+  
+  
+</p>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/blog/">Blog</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/bullhorn/">Bullhorn</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/code/">Code</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/computervision/">ComputerVision</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/example/">Example</a> (2)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/machinelearning/">MachineLearning</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/soft/">Soft</a> (1)
-  </li>
-  
+
+<div class="content-wrapper">
+  <main>
+    
+
+<h1 id="environment">Environment</h1>
+
+<h2 id="windows">Windows</h2>
+
+<ul>
+<li>公式からインストール。<a href="https://opencv.org/releases/">Releases</a>を参照</li>
+<li>展開し環境変数にbinまで登録　C:\OpenCV\OpenCV34\opencv\build\x64\vc14\bin</li>
+<li>VisualStudioで新しいプロジェクトを作成</li>
+<li>プロジェクトのプロパティのインクルードディレクトリ・リンカのライブラリ・入力の依存ファイル(Releaseはdなし、Debugはdあり)を登録</li>
+
+<li><p>テストを行いビルドし、小さい窓が出れば完了</p>
+
+<pre><code class="language-cpp">#include &lt;opencv2/opencv.hpp&gt;
+
+using namespace cv;
+
+int main()
+{
+Mat image = Mat::zeros(100, 100, CV_8UC3);
+imshow(&quot;&quot;, image);
+waitKey(0);
+}
+</code></pre></li>
+
+<li><p>はまりやすいポイントととして、リンカーの入力ファイルをwindowsのGUI上で見ると.libが消えており、ビルドできなかった</p></li>
+
+<li><p>OpenCV4系でコードを書いているサイトを検索するように心がける。本当はビルドできるのにビルドできてないと怒られたので</p></li>
 </ul>
 
+<h3 id="references">References</h3>
+
+<ul>
+<li><a href="https://opencv.org/releases/">Releases</a></li>
+<li><a href="https://madeinpc.blog.fc2.com/blog-entry-1277.html">【覚書】VisualStudioでOpenCVを使う場合の簡単な各種設定（Windows10 64Bit版用）【環境構築】</a></li>
+<li><a href="https://teratail.com/questions/100794">KinectV2 VisualStudio2017でのLNK2019</a></li>
+<li><a href="http://tecsingularity.com/opencv/opencv34/">Visual Studio 2015でOpenCV 3.4環境構築(Windows10)</a></li>
+<li><a href="https://qiita.com/h-adachi/items/aad3401b8900438b2acd">OpenCV 4.2.0をVisual Studio 2019から使用する時の手順</a></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
     <footer>
       
 <script>

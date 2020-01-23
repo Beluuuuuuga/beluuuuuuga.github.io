@@ -6,10 +6,44 @@
     <description>Recent content in Home on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 21:16:58 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HUGO</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/hugo/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/hugo/</guid>
+      <description> windowsへのインストール  chocolateyインストールのためにコマンドプロンプトに以下のコマンドを記入
+@&amp;quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&amp;quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &amp;quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&amp;quot; &amp;amp;&amp;amp; SET &amp;quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&amp;quot;  hugoインストール
+choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
+  つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった  Tips  .mdでの論文形式の注釈の付け方
+# 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)   </description>
+    </item>
+    
+    <item>
+      <title>OpenCV4</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/opencv4/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/opencv4/</guid>
+      <description> Environment Windows  公式からインストール。Releasesを参照 展開し環境変数にbinまで登録　C:\OpenCV\OpenCV34\opencv\build\x64\vc14\bin VisualStudioで新しいプロジェクトを作成 プロジェクトのプロパティのインクルードディレクトリ・リンカのライブラリ・入力の依存ファイル(Releaseはdなし、Debugはdあり)を登録 テストを行いビルドし、小さい窓が出れば完了
+#include &amp;lt;opencv2/opencv.hpp&amp;gt; using namespace cv; int main() { Mat image = Mat::zeros(100, 100, CV_8UC3); imshow(&amp;quot;&amp;quot;, image); waitKey(0); }  はまりやすいポイントととして、リンカーの入力ファイルをwindowsのGUI上で見ると.libが消えており、ビルドできなかった
+ OpenCV4系でコードを書いているサイトを検索するように心がける。本当はビルドできるのにビルドできてないと怒られたので
+  References  Releases 【覚書】VisualStudioでOpenCVを使う場合の簡単な各種設定（Windows10 64Bit版用）【環境構築】 KinectV2 VisualStudio2017でのLNK2019 Visual Studio 2015でOpenCV 3.4環境構築(Windows10) OpenCV 4.2.0をVisual Studio 2019から使用する時の手順  </description>
+    </item>
+    
+    <item>
+      <title>TensorFlow &amp; Keras</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</guid>
+      <description>Knowlege Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(my_model.h5) model = load_model(&amp;lsquo;my_model.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) model.load_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) モデルの重みのみ    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
+    </item>
     
     <item>
       <title>Good to Great</title>

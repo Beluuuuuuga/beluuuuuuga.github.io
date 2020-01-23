@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>Categories | My New Hugo Site</title>
+    <title>HUGO | My New Hugo Site</title>
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
@@ -28,7 +28,7 @@
       </li>
       
       
-      <li class="pull-left current">
+      <li class="pull-left ">
         <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
       </li>
       
@@ -54,41 +54,65 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">HUGO</span></h1>
 
-<h1>Categories</h1>
+<h2 class="date">2020/01/23</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/soft">Soft</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/hugo">HUGO</a> 
+  
+  
+</p>
+</div>
 
-<ul class="terms">
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/blog/">Blog</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/bullhorn/">Bullhorn</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/code/">Code</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/computervision/">ComputerVision</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/example/">Example</a> (2)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/machinelearning/">MachineLearning</a> (1)
-  </li>
-  
-  <li>
-    <a href="https://beluuuuuuga.github.io/categories/soft/">Soft</a> (1)
-  </li>
-  
+
+<div class="content-wrapper">
+  <main>
+    
+
+<h1 id="windowsへのインストール">windowsへのインストール</h1>
+
+<ul>
+<li><p>chocolateyインストールのためにコマンドプロンプトに以下のコマンドを記入</p>
+
+<pre><code>@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;
+</code></pre></li>
+
+<li><p>hugoインストール</p>
+
+<pre><code>choco install hugo -confirm
+</code></pre></li>
+
+<li><p>hugo.exeのフォルダを環境変数に保存</p></li>
 </ul>
 
+<h1 id="つまりそうな部分">つまりそうな部分</h1>
+
+<ul>
+<li>.mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった</li>
+</ul>
+
+<h1 id="tips">Tips</h1>
+
+<ul>
+<li><p>.mdでの論文形式の注釈の付け方</p>
+
+<pre><code class="language-txt"># 上に番号をつける
+&lt;sup&gt;&lt;a href=#1&gt;*1&lt;/a&gt;&lt;sup&gt; 
+# 下のリファレンス
+&lt;a href=#1&gt;*1&lt;/a&gt;:[Name](URL)
+</code></pre></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
     <footer>
       
 <script>

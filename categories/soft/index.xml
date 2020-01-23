@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HUGO on My New Hugo Site</title>
-    <link>https://beluuuuuuga.github.io/tags/hugo/</link>
-    <description>Recent content in HUGO on My New Hugo Site</description>
+    <title>Soft on My New Hugo Site</title>
+    <link>https://beluuuuuuga.github.io/categories/soft/</link>
+    <description>Recent content in Soft on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://beluuuuuuga.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beluuuuuuga.github.io/categories/soft/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@
 choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
   つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった  Tips  .mdでの論文形式の注釈の付け方
 # 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)   </description>
-    </item>
-    
-    <item>
-      <title>Good to Great</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</link>
-      <pubDate>Wed, 22 Jan 2020 21:16:58 +0900</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</guid>
-      <description></description>
     </item>
     
   </channel>
