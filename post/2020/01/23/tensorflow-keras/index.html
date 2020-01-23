@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>TensorFlow &amp; Keras | My New Hugo Site</title>
+    <title>TensorFlow &amp; Keras | home</title>
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
@@ -24,7 +24,7 @@
       
       
       <li class="pull-left ">
-        <a href="https://beluuuuuuga.github.io/">~/my new hugo site</a>
+        <a href="https://beluuuuuuga.github.io/">~/home</a>
       </li>
       
       
@@ -41,7 +41,7 @@
       
       
       <li class="pull-right">
-        <a href="https://beluuuuuuga.github.io/index.xml">~/subscribe</a>
+        <a href="https://beluuuuuuga.github.io/sites.html">~/subscribe</a>
       </li>
       
 
@@ -76,14 +76,14 @@
   <main>
     
 
-<h1 id="knowlege">Knowlege</h1>
+<h1 id="knowledge">Knowledge</h1>
 
 <h2 id="model">Model</h2>
 
 <ul>
-<li>Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ<sup><a href=#1>*1</a><sup></li>
+<li>Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ<sup><a href=#1a>*1</a><sup></li>
 <li>ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする</li>
-<li>kerasで保存する対象とそのコード。くわしくは下記サイトを参照<sup><a href=#2>*2</a><sup></li>
+<li>kerasで保存する対象とそのコード。くわしくは下記サイトを参照<sup><a href=#2a>*2</a><sup></li>
 </ul>
 
 <table>
@@ -97,8 +97,8 @@
 
 <tbody>
 <tr>
-<td>model.save(my_model.h5)</td>
-<td>model = load_model(&lsquo;my_model.h5&rsquo;)</td>
+<td>model.save(&lsquo;hoge.h5&rsquo;)</td>
+<td>model = load_model(&lsquo;hoge.h5&rsquo;)</td>
 <td>アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）</td>
 </tr>
 
@@ -109,9 +109,9 @@
 </tr>
 
 <tr>
-<td>model.save_weights(&lsquo;my_model_weights.h5&rsquo;)</td>
-<td>model.load_weights(&lsquo;my_model_weights.h5&rsquo;)</td>
-<td>モデルの重みのみ</td>
+<td>model.save_weights(&lsquo;hoge.h5&rsquo;)</td>
+<td>model.load_weights(&lsquo;hoge.h5&rsquo;)</td>
+<td>モデルの重みのみ(.hdf5 or .h)</td>
 </tr>
 </tbody>
 </table>
@@ -119,8 +119,8 @@
 <h3 id="references">References</h3>
 
 <ul>
-<li><a href=#1>*1</a>:<a href="https://cv-tricks.com/how-to/freeze-tensorflow-models/">Freeze Tensorflow models and serve on web</a></li>
-<li><a href=#1>*2</a>:<a href="https://keras.io/ja/getting-started/faq/">Keras FAQ: Kerasに関するよくある質問</a></li>
+<li><a href=#1a>*1</a>:<a href="https://cv-tricks.com/how-to/freeze-tensorflow-models/">Freeze Tensorflow models and serve on web</a></li>
+<li><a href=#2a>*2</a>:<a href="https://keras.io/ja/getting-started/faq/">Keras FAQ: Kerasに関するよくある質問</a></li>
 </ul>
 
 <h1 id="tf2-0">TF2.0</h1>
@@ -163,7 +163,7 @@ logging.info(&quot;save pb successfully！&quot;)
 <h2 id="model-save-and-load-1">Model save and load</h2>
 
 <ul>
-<li><p>.jsonと.h(.hdf5)で読み込み.pbで保存。読み込みできないのでウソの可能性がある。<a href="https://tutorialmore.com/questions-139135.htm">site</a></p>
+<li><p>.jsonと.h(.hdf5)で読み込み.pbで保存。読み込みできないのでウソの可能性がある<sup><a href=#1c>*1</a><sup></p>
 
 <pre><code class="language-python">import tensorflow as tf
 from keras import backend as K
@@ -225,9 +225,10 @@ logging.info(&quot;save pb successfully！&quot;)
 <h3 id="references-1">References</h3>
 
 <ul>
-<li><a href="https://laid.delanover.com/how-to-freeze-a-graph-in-tensorflow/">How to freeze a graph in Tensorflow</a></li>
-<li><a href="https://stackoverflow.com/questions/50632258/how-to-restore-tensorflow-model-from-pb-file-in-python">How to restore Tensorflow model from .pb file in python?</a></li>
-<li>[How to convert trained Keras model to a single TensorFlow .pb file and make prediction(<a href="https://www.dlology.com/blog/how-to-convert-trained-keras-model-to-tensorflow-and-make-prediction/">https://www.dlology.com/blog/how-to-convert-trained-keras-model-to-tensorflow-and-make-prediction/</a>)</li>
+<li><a href=#1c>*1</a>:<a href="https://tutorialmore.com/questions-139135.htm">kerasモデルh5ファイルをテンソルフロー保存モデル（pb）に変換する方法</a></li>
+<li><a href=#2c>*2</a>:<a href="https://laid.delanover.com/how-to-freeze-a-graph-in-tensorflow/">How to freeze a graph in Tensorflow</a></li>
+<li><a href=#3c>*3</a>:<a href="https://stackoverflow.com/questions/50632258/how-to-restore-tensorflow-model-from-pb-file-in-python">How to restore Tensorflow model from .pb file in python?</a></li>
+<li><a href=#4c>*4</a>:<a href="https://www.dlology.com/blog/how-to-convert-trained-keras-model-to-tensorflow-and-make-prediction/">How to convert trained Keras model to a single TensorFlow .pb file and make prediction</a></li>
 </ul>
 
 <h1 id="keras">Keras</h1>
@@ -240,20 +241,22 @@ logging.info(&quot;save pb successfully！&quot;)
 <pre><code class="language-python">model.save_weights('model.hdf5')
 </code></pre></li>
 
-<li><p>load_modelでパスを指定して読み込むことでエラーを解消。<a href="https://stackoverflow.com/questions/47266383/save-and-load-weights-in-keras">site</a></p>
+<li><p>load_modelでパスを指定して読み込むことでエラーを解消<sup><a href=#1b>*1</a><sup></p>
 
 <pre><code class="language-python">from keras.models import load_model
 model = load_model('model.h5')
 </code></pre></li>
 
-<li><p>カスタムされたモデルは引数をつけないとロードできない。<a href="https://teratail.com/questions/112052?link=qa_related_pc">site</a></p></li>
+<li><p>カスタムされたモデルは引数をつけないとロードできない<sup><a href=#2b>*2</a><sup></p></li>
 </ul>
 
 <h3 id="references-2">References</h3>
 
 <ul>
-<li><a href="https://qiita.com/supersaiakujin/items/b9c9da9497c2163d5a74">[TF]KerasでModelとParameterをLoad/Saveする方法</a></li>
-<li><a href="https://www.slideshare.net/bathtimefish/keras-75584966">Kerasで可視化いろいろ</a><br />
+<li><a href=#1b>*1</a>:<a href="https://stackoverflow.com/questions/47266383/save-and-load-weights-in-keras">Save and load weights in keras</a></li>
+<li><a href=#2b>*2</a>:<a href="https://teratail.com/questions/112052?link=qa_related_pc">kerasのモデルのload_modelでエラー</a></li>
+<li><a href=#3b>*3</a>:<a href="https://qiita.com/supersaiakujin/items/b9c9da9497c2163d5a74">[TF]KerasでModelとParameterをLoad/Saveする方法</a></li>
+<li><a href=#4b>*4</a>:<a href="https://www.slideshare.net/bathtimefish/keras-75584966">Kerasで可視化いろいろ</a><br />
 
 <ul>
 <li>よさそうなのでやってみる</li>

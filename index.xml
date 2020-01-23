@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on My New Hugo Site</title>
+    <title>Home on home</title>
     <link>https://beluuuuuuga.github.io/</link>
-    <description>Recent content in Home on My New Hugo Site</description>
+    <description>Recent content in Home on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
@@ -20,7 +20,7 @@
       <description> windowsへのインストール  chocolateyインストールのためにコマンドプロンプトに以下のコマンドを記入
 @&amp;quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&amp;quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &amp;quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&amp;quot; &amp;amp;&amp;amp; SET &amp;quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&amp;quot;  hugoインストール
 choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
-  つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった  Tips  .mdでの論文形式の注釈の付け方
+  つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった。draft部分を削除すれば.htmlが作成される ファイルを編集していて、サブモジュールのusername.io.gitが更新されない場合、サブモジュールを解除し、再びサブモジュールする。また、.gitが消えてしまってる可能性があるので元のリポジトリからコピーする  Tips  .mdでの論文形式の注釈の付け方
 # 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)   </description>
     </item>
     
@@ -42,16 +42,7 @@ choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</guid>
-      <description>Knowlege Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(my_model.h5) model = load_model(&amp;lsquo;my_model.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) model.load_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) モデルの重みのみ    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
-    </item>
-    
-    <item>
-      <title>Good to Great</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</link>
-      <pubDate>Wed, 22 Jan 2020 21:16:58 +0900</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</guid>
-      <description></description>
+      <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
     </item>
     
     <item>
@@ -66,38 +57,6 @@ choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
  Block quotes are written like so.
 They can span multiple paragraphs, if you like.
  Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex.</description>
-    </item>
-    
-    <item>
-      <title>Hacker with Bullhorn</title>
-      <link>https://beluuuuuuga.github.io/post/2012/04/23/hacker-with-horn/</link>
-      <pubDate>Mon, 23 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/post/2012/04/23/hacker-with-horn/</guid>
-      <description>Hacker with bullhorn: &amp;ldquo;Save your money! Accept one of our free tanks! It is invulnerable, and can drive across rocks and swamps at ninety miles an hour while getting a hundred miles to the gallon!&amp;rdquo;
-Prospective station wagon buyer: &amp;ldquo;I know what you say is true&amp;hellip;but&amp;hellip;er&amp;hellip;I don&amp;rsquo;t know how to maintain a tank!&amp;rdquo;
-Bullhorn: &amp;ldquo;You don&amp;rsquo;t know how to maintain a station wagon either!&amp;rdquo;
-Buyer: &amp;ldquo;But this dealership has mechanics on staff.</description>
-    </item>
-    
-    <item>
-      <title>Command Line Awesomeness</title>
-      <link>https://beluuuuuuga.github.io/post/2012/03/12/command-line-awesomeness/</link>
-      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/post/2012/03/12/command-line-awesomeness/</guid>
-      <description>This crud is called HTML (HyperText Markup Language) and it is basically a very simple programming language instructing your web browser how to draw a page on a screen. Anyone can learn HTML and many people do. The important thing is that no matter what splendid multimedia web pages they might represent, HTML files are just telegrams.
- When Ronald Reagan was a radio announcer, he used to call baseball games by reading the terse descriptions that trickled in over the telegraph wire and were printed out on a paper tape.</description>
-    </item>
-    
-    <item>
-      <title>Juicy Code</title>
-      <link>https://beluuuuuuga.github.io/post/2012/01/23/juicy-code/</link>
-      <pubDate>Mon, 23 Jan 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/post/2012/01/23/juicy-code/</guid>
-      <description>Check out this JUICY! code:
-def with_value_from_database(value) self.class.from_database(name, value, type) end def with_cast_value(value) self.class.with_cast_value(name, value, type) end def with_type(type) if changed_in_place? with_value_from_user(value).with_type(type) else self.class.new(name, value_before_type_cast, type, original_attribute) end end  </description>
     </item>
     
   </channel>

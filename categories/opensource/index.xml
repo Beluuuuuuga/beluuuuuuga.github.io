@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HUGO on home</title>
-    <link>https://beluuuuuuga.github.io/tags/hugo/</link>
-    <description>Recent content in HUGO on home</description>
+    <title>OpenSource on home</title>
+    <link>https://beluuuuuuga.github.io/categories/opensource/</link>
+    <description>Recent content in OpenSource on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://beluuuuuuga.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beluuuuuuga.github.io/categories/opensource/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

@@ -48,12 +48,12 @@
   </url>
   
   <url>
-    <loc>https://beluuuuuuga.github.io/post/</loc>
+    <loc>https://beluuuuuuga.github.io/categories/opensource/</loc>
     <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://beluuuuuuga.github.io/categories/soft/</loc>
+    <loc>https://beluuuuuuga.github.io/post/</loc>
     <lastmod>2020-01-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,11 +73,6 @@
   </url>
   
   <url>
-    <loc>https://beluuuuuuga.github.io/post/2020/01/22/juicy-code/</loc>
-    <lastmod>2020-01-22T21:16:58+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://beluuuuuuga.github.io/categories/example/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
   </url>
@@ -90,46 +85,6 @@
   <url>
     <loc>https://beluuuuuuga.github.io/post/2018/08/30/markdown-guide-modified/</loc>
     <lastmod>2018-08-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/categories/bullhorn/</loc>
-    <lastmod>2012-04-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/post/2012/04/23/hacker-with-horn/</loc>
-    <lastmod>2012-04-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/categories/blog/</loc>
-    <lastmod>2012-03-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/post/2012/03/12/command-line-awesomeness/</loc>
-    <lastmod>2012-03-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/tags/html/</loc>
-    <lastmod>2012-03-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/categories/code/</loc>
-    <lastmod>2012-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/tags/juicy/</loc>
-    <lastmod>2012-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://beluuuuuuga.github.io/post/2012/01/23/juicy-code/</loc>
-    <lastmod>2012-01-23T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

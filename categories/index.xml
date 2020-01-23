@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Site</title>
+    <title>Categories on home</title>
     <link>https://beluuuuuuga.github.io/categories/</link>
-    <description>Recent content in Categories on My New Hugo Site</description>
+    <description>Recent content in Categories on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
@@ -30,11 +30,11 @@
     </item>
     
     <item>
-      <title>Soft</title>
-      <link>https://beluuuuuuga.github.io/categories/soft/</link>
+      <title>OpenSource</title>
+      <link>https://beluuuuuuga.github.io/categories/opensource/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/categories/soft/</guid>
+      <guid>https://beluuuuuuga.github.io/categories/opensource/</guid>
       <description></description>
     </item>
     
@@ -44,33 +44,6 @@
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/categories/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bullhorn</title>
-      <link>https://beluuuuuuga.github.io/categories/bullhorn/</link>
-      <pubDate>Mon, 23 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/categories/bullhorn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://beluuuuuuga.github.io/categories/blog/</link>
-      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Code</title>
-      <link>https://beluuuuuuga.github.io/categories/code/</link>
-      <pubDate>Mon, 23 Jan 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/categories/code/</guid>
       <description></description>
     </item>
     

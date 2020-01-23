@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MachineLearning on My New Hugo Site</title>
+    <title>MachineLearning on home</title>
     <link>https://beluuuuuuga.github.io/categories/machinelearning/</link>
-    <description>Recent content in MachineLearning on My New Hugo Site</description>
+    <description>Recent content in MachineLearning on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</guid>
-      <description>Knowlege Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(my_model.h5) model = load_model(&amp;lsquo;my_model.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) model.load_weights(&amp;lsquo;my_model_weights.h5&amp;rsquo;) モデルの重みのみ    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
+      <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
     </item>
     
   </channel>
