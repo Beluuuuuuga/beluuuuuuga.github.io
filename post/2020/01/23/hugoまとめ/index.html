@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>OpenSource | home</title>
+    <title>HUGOまとめ | home</title>
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
@@ -28,7 +28,7 @@
       </li>
       
       
-      <li class="pull-left current">
+      <li class="pull-left ">
         <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
       </li>
       
@@ -54,49 +54,70 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">HUGOまとめ</span></h1>
+
+<h2 class="date">2020/01/23</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/opensource">OpenSource</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/hugo">HUGO</a> 
+  
+  
+</p>
+</div>
+
 
 <div class="content-wrapper">
+  <main>
+    
 
-  <h1>OpenSource</h1>
-  
+<h1 id="windowsへのインストール">windowsへのインストール</h1>
 
-  
+<ul>
+<li><p>chocolateyインストールのためにコマンドプロンプトに以下のコマンドを記入</p>
 
-  <ul>
-     
-     
-     
-     <li>
-       <span class="date">2020/01/25</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/25/mastering-data-structures-algorithms-using-c-and-c-/">Mastering Data Structures &amp; Algorithms using C and C++</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/24</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/24/opencv4%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80/">OpenCV4を用いた画像処理プログラミング入門</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/hugo%E3%81%BE%E3%81%A8%E3%82%81/">HUGOまとめ</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/opencv4%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">OpenCV4環境構築</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/">TensorFlow &amp; Kerasのモデル</a>
-     </li>
-     
-     <li>
-       <span class="date">2018/08/30</span>
-       <a href="https://beluuuuuuga.github.io/post/2018/08/30/markdown-guide-modified/">Markdown Guide (modified)</a>
-     </li>
-     
-   </ul>
+<pre><code>@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;
+</code></pre></li>
+
+<li><p>hugoインストール</p>
+
+<pre><code>choco install hugo -confirm
+</code></pre></li>
+
+<li><p>hugo.exeのフォルダを環境変数に保存</p></li>
+</ul>
+
+<h1 id="つまりそうな部分">つまりそうな部分</h1>
+
+<ul>
+<li>.mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった。draft部分を削除すれば.htmlが作成される</li>
+<li>ファイルを編集していて、サブモジュールのusername.io.gitが更新されない場合、サブモジュールを解除し、再びサブモジュールする。また、.gitが消えてしまってる可能性があるので元のリポジトリからコピーする</li>
+</ul>
+
+<h1 id="tips">Tips</h1>
+
+<ul>
+<li><p>.mdでの論文形式の注釈の付け方</p>
+
+<pre><code class="language-txt"># 上に番号をつける
+&lt;sup&gt;&lt;a href=#1&gt;*1&lt;/a&gt;&lt;sup&gt; 
+# 下のリファレンス
+&lt;a href=#1&gt;*1&lt;/a&gt;:[Name](URL)
+</code></pre></li>
+
+<li><p>HOMEでない時の条件式</p>
+
+<pre><code>{{if ne .IsHome true }}
+</code></pre></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
 </div>
     <footer>
       

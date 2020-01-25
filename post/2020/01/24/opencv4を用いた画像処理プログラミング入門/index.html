@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://beluuuuuuga.github.io/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://beluuuuuuga.github.io/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://beluuuuuuga.github.io/images/favicon-16x16.png">
+    <link rel="manifest" href="https://beluuuuuuga.github.io/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>OpenCV4を用いた画像処理プログラミング入門 | home</title>
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/">~/home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/tags/">~/tags</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/sites/">~/sites</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">OpenCV4を用いた画像処理プログラミング入門</span></h1>
+
+<h2 class="date">2020/01/24</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/computervision">ComputerVision</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/opencv">OpenCV</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    
+
+<h1 id="1-イントロダクション">1.イントロダクション</h1>
+
+<ul>
+<li>講師:浦西友樹（うらにし　ゆうき）</li>
+</ul>
+
+<h3 id="どのようにして本を見つけたか">どのようにして本を見つけたか？</h3>
+
+<ul>
+<li>本はどこにある？などの物体認識は難しい</li>
+<li>目から画像を入力→知識から本の特徴を推定→画像から自分の知っている本に似た物体を探す</li>
+</ul>
+
+<h3 id="画像処理-認識技術の応用例">画像処理・認識技術の応用例</h3>
+
+<ul>
+<li>スマイルシャッター:2000年代の商品は課題を簡単にして処理していた。人間の顔は似ているので処理できる</li>
+<li>アイサイト:限られた状態でしかありえない</li>
+<li>問題が一般化すると課題を難しくなる</li>
+</ul>
+
+<h3 id="コンピュータにおけ画像のデータ構造">コンピュータにおけ画像のデータ構造</h3>
+
+<ul>
+<li>コンピュータにおける画像は、1画素（ピクセル）の並び</li>
+<li>スマホですら4K, 2K（800dpi）→普通はどれくらいなのか？</li>
+<li>画素は青・緑・赤が並び正方形</li>
+<li>255 = 2^8 - 1 :1画素あたり24(8*3)ビットある: 10000ぐらい</li>
+<li>画素密度は50倍ぐらいであるが、1画素は長年変化ない</li>
+<li>300dpi(dot / inchi)が人間がアナログデータとデジタルを認識できる限界: 大画面でみるとdpiが下がる: 物理的にテレビの限界がある</li>
+<li>ディスプレイが明るさを出せる幅は人間が対応できる（知覚できる）幅に対して狭いので24ビットから変化がない</li>
+</ul>
+
+<h3 id="c言語による画像処理プログラミング">C言語による画像処理プログラミング</h3>
+
+<ul>
+<li>データに対するアクセスは配列に対する処理</li>
+<li>ビットマップファイルはヘッダに書かれた画像情報を読み取る必要がある（縦1000*横1000 OR 縦1*横10000）</li>
+<li>エンコードされたデータを扱うためにデータ構造を理解しておく必要がある（デコードするために）</li>
+<li>ビットマップファイルを読み込んで処理はアップルウォッチでさえできる</li>
+</ul>
+
+<h3 id="opencv-open-conputer-vision-library">OpenCV(Open Conputer Vision Library)</h3>
+
+<ul>
+<li>1990年代にIntelが開発していたImageProcessingLibraryが元</li>
+<li>Intel→2008 Willow Garage→Intel: 開発者の移動に伴っている</li>
+<li>BSD(Berkeley Software Distribution)ライセンスに基づいている</li>
+<li>マルチプロットフォーム(win/linux/mac/ios/and, c/c++/python/java)</li>
+<li>バックエンドでCPU/GPU</li>
+<li>現在2000万ヒットとデファクトスタンダードとなっている</li>
+<li>ダウンロードトップカントリーはかつてはアメリカ・日本だが、現在は中国がトップ。韓国・日本が３番手を争う</li>
+<li>CLIではダウンロードカウントされない</li>
+</ul>
+
+<h3 id="opencvでできること">OpenCVでできること</h3>
+
+<ul>
+<li>画像に関することはなんでもできる</li>
+</ul>
+
+<h3 id="opencvの利点">OpenCVの利点</h3>
+
+<ul>
+<li>産総研ではspyderやMatlabなどのライブラリがあったが、2000にでてきたOpenCVは簡単である</li>
+<li>簡単:インストール方法が確立、最新アルゴリズムも関数を呼び出すことで組み込める</li>
+<li>ライブラリを用いているが、早い</li>
+<li>BSDライセンスなので、商用利用であってもライセンス表示するのみで、ソースコードを公開することなく利用できる</li>
+</ul>
+
+<h3 id="opencvのバージョンの変遷">OpenCVのバージョンの変遷</h3>
+
+<ul>
+<li>2006. 10 1.0: C</li>
+<li>2009.  9 2.0: C/C++</li>
+<li>2015.  6 3.0</li>
+<li>2.0系では少しの変化でもバージョンがアップしていた</li>
+<li>3.0系ではbaseとcontributionsで分けられている</li>
+<li>インストーラーではbaseのみがダウンロードされる</li>
+<li>contoributionsでは特許で保護されている</li>
+</ul>
+
+<h3 id="t-api-transparent-api">T-API(Transparent API)</h3>
+
+<ul>
+<li>3.0以降では実行環境によってGPUとCPUが使い分けられる: インストーラーでも同じ</li>
+<li>内臓では7倍から10倍の速度向上が見込める</li>
+</ul>
+
+<h3 id="opencv-4-0">OpenCV 4.0</h3>
+
+<ul>
+<li>C言語のインターフェースを消している</li>
+<li>深層学習などもモジュールが強くなっている</li>
+<li>Kinect Fusionの実装とは？</li>
+<li>QRコード検出およびデコーダの実装</li>
+<li>C++11に対応</li>
+<li>3.0と基本的な使い方は変わらない</li>
+<li>4.0は2018年に発表</li>
+</ul>
+
+<h1 id="2-開発環境の導入">2.開発環境の導入</h1>
+
+<h3 id="opencvインストール">OpenCVインストール</h3>
+
+<ul>
+<li>Win32をビルドする場合はx64ではなくx84にディレクトリパスを読み替える</li>
+<li>それぞれ対応　vc14 =&gt; VS 2015, vc15 =&gt; VS 2017</li>
+</ul>
+
+<h3 id="visual-studioで使われる用語">Visual Studioで使われる用語</h3>
+
+<ul>
+<li>プロジェクト: 複数のソースファイルを束ねて1つの実行可能ファイルを作成する単位</li>
+<li>ソリューション: 複数のプロジェクトをまとめる単位</li>
+<li>コンパイル: コンパイルすると関数ごとにオブジェクトコードが生成される</li>
+<li>リンク: 生成されたオブジェクトコードをリンクという</li>
+<li>ビルド: コンパイルとリンクを作業をビルドという。linuxだとmakeという</li>
+<li>実行可能ファイル(.exe)は実行時にopencvのdllを参照</li>
+<li>リンカーエラー: OpenCVのライブラリファイルのありかが間違えてる</li>
+<li>VSでは、どこのエラーか教えてくれる。コンパイルエラーでは細かく教えてくれる</li>
+</ul>
+
+<h3 id="visual-studioの設定と動作確認">Visual Studioの設定と動作確認</h3>
+
+<ul>
+<li>コンソールの空プロジェクトの場合、構成のC/C++が存在しないのでファイルを作成する必要がある</li>
+<li>設定の際に構成はすべての構成にする</li>
+<li>ビルドの方法は3種類</li>
+
+<li><p>構成プロパティのリンカの入力に書き込むかヘッダに書き込んで読み込む</p>
+
+<pre><code class="language-cpp">#ifdef _DEBUG
+#pragma comment(lib, &quot;opencv_world412d.lib&quot;)
+#else
+#pragma comment(lib, &quot;opencv_world412.lib&quot;)
+#endif
+</code></pre></li>
+
+<li><p>空のウィンドウが1枚描画されれば正常に動作</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+
+int main() {
+	cv::Mat src(480, 640, CV_8UC3);
+	cv::imshow(&quot;sourse&quot;, src);
+	cv::waitKey(0);
+	return 0;
+}
+
+</code></pre></li>
+
+<li><p>hederファイルを参照することなくmainに書き込むとき</p>
+
+<pre><code class="language-cpp"># include &lt;opencv2/opencv.hpp&gt;
+
+#ifdef _DEBUG
+#pragma comment(lib, &quot;opencv_world412d.lib&quot;)
+#else
+#pragma comment(lib, &quot;opencv_world412.lib&quot;)
+#endif
+
+int main() {
+	cv::Mat src(480, 640, CV_8UC3);
+	cv::imshow(&quot;sourse&quot;, src);
+	cv::waitKey(0);
+	return 0;
+}
+</code></pre></li>
+
+<li><p>コードの説明</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+
+int main() {
+	// cv Mat型のsrcの変数という宣言; 行列
+	// 縦480 * 横640
+	// CV_8UC3; 8=&gt;8bit(depth)
+	// U=&gt;Unsigned(符号なし 0〜255)
+	// S=&gt;signed(-128〜127まで)、差分で表現するときなどはsignedにするときもある
+	// 3=&gt;ch=3、3色青・緑・赤
+	cv::Mat src(480, 640, CV_8UC3);
+	// &quot;source&quot;=&gt;windowの識別で文字列一致、source2にすると違うwindowになる
+	cv::imshow(&quot;source&quot;, src);
+	// waitKey(0)=&gt;keyを待つ、0もしくは負の値を入れた場合に入力を無限に待つ
+	cv::waitKey(0);
+	return 0;
+}
+
+</code></pre></li>
+</ul>
+
+<h3 id="その他のライブラリ">その他のライブラリ</h3>
+
+<ul>
+<li>Caffe by BVLC@UCB</li>
+<li>Anacondaのダウンロード: <a href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a></li>
+<li>OpenCV for Pythonのダウンロード: <a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a></li>
+<li>opencv_python-m.n.o+contrib-cpXX-cpXXm-win_amd64.whlを上記からダウンロード</li>
+<li>Macでは1つのプロジェクトで数百メガバイトのバイナリファイルが作成されてしまうので、Visual Studioにライブラリを紐づけるのが最適解</li>
+</ul>
+
+<h1 id="3-opencvの基礎的なプログラム">3.OpenCVの基礎的なプログラム</h1>
+
+<h3 id="画像ファイルの読み込みと保存">画像ファイルの読み込みと保存</h3>
+
+<ul>
+<li>カレントディレクトリを確認する必要がある
+=&gt; プロジェクトファイル(.vcxproj)が存在している場所</li>
+
+<li><p>opencvにはサンプルデータがたくさんあるopencv\sources\samples\data</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+
+int main(int argc, char** argv) { // 引数は省略可能
+	// 引数を宣言、画像を読み込み
+	cv::Mat src = cv::imread(&quot;sample.jpg&quot;);
+	// 画像を表示
+	cv::imshow(&quot;source&quot;, src);
+	// 画像を保存
+	cv::imwrite(&quot;output.jpg&quot;, src);
+	cv::waitKey(0);
+	return 0;
+}
+</code></pre></li>
+
+<li><p>pngで読み込んでjpgに変換できる</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+
+int main(int argc, char** argv) { // 引数は省略可能
+	// 引数を宣言、画像を読み込み
+	cv::Mat src = cv::imread(&quot;sample.png&quot;);
+	// 画像を表示
+	cv::imshow(&quot;source&quot;, src);
+	// 画像を保存
+	cv::imwrite(&quot;output.jpg&quot;, src);
+	cv::waitKey(0);
+	return 0;
+}
+</code></pre></li>
+</ul>
+
+<h3 id="カメラ画像の取り込み">カメラ画像の取り込み</h3>
+
+<ul>
+<li>動画ファイルなども扱うこともできる</li>
+
+<li><p>escキーを押すと終了する</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+
+int main(int argc, char** argv) { // 引数は省略可能
+	// 引数を宣言、画像を読み込み
+	cv::VideoCapture capture(0);
+	cv::Mat frame;
+	// ウィンドウを作成
+	cv::namedWindow(&quot;Camera Image&quot;);
+	for (;;) {
+		capture &gt;&gt; frame; // カメラ画像を取り込む
+		cv::imshow(&quot;Camera Image&quot;, frame);
+		if (cv::waitKey(30) == 27) { // 27はescキー
+			break;
+		}
+	}
+	return 0;
+}
+</code></pre></li>
+</ul>
+
+<h3 id="幾何的画像処理">幾何的画像処理</h3>
+
+<ul>
+<li><strong>スケーリング</strong>, <strong>シアーリング</strong>, <strong>回転</strong>: 2行2列</li>
+<li><strong>アフィン変換</strong>: 2行3列
+
+<ul>
+<li>回転・縮小・平行移動はできるが、奥行きを表すことはできない</li>
+</ul></li>
+<li><strong>射影変換</strong>: 奥行きを表すことができる</li>
+<li>幾何変換の変換行列を先に求めることは困難なので移動後の点を使用して、変換行列を求める　P^&rsquo; = AP: Aを求める</li>
+</ul>
+
+<h3 id="光学的画像処理">光学的画像処理</h3>
+
+<ul>
+<li><p><strong>画像の色変換</strong></p>
+
+<ul>
+<li><p>動画画像がグレーで映る</p>
+
+<pre><code class="language-cpp">#include &quot;stdafx.h&quot;
+# include &lt;opencv2/opencv.hpp&gt;
+
+int main(int argc, char** argv) { // 引数は省略可能
+	// 引数を宣言、画像を読み込み
+	cv::VideoCapture capture(0);
+	cv:: Mat frame, gray;
+
+
+	// ウィンドウを作成
+	cv::namedWindow(&quot;Camera Image&quot;);
+	do {
+		capture &gt;&gt; frame;
+		// 3チャンネルRGBからグレースケールに変換
+		cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+		
+		cv::imshow(&quot;Camera Image&quot;, gray);
+	} while (cv::waitKey(10) != 27);
+
+	
+	return 0;
+}
+</code></pre></li>
+</ul></li>
+
+<li><p><strong>2値化</strong></p>
+
+<ul>
+<li>グレースケールで入力する必要がある</li>
+<li>OpenCVの引数では(input, input, binary, binary, output)みたいな感じになる</li>
+</ul></li>
+</ul>
+
+<h1 id="4-opencvの基礎的なプログラム">4.OpenCVの基礎的なプログラム</h1>
+
+<h3 id="画素への直接アクセス">画素への直接アクセス</h3>
+
+<ul>
+<li>画像は二次元だが一次元でアクセスする必要がある; ラスタ表現</li>
+<li>RGBであれば、1画素に3つの成分が存在</li>
+<li>各行の先頭の配列のポインターを直接アクセスする関数: src.ptr<uchar>
+
+<ul>
+<li>1つが高速化のためと自分でライブラリを作成するときに使用するため</li>
+<li>しかし、開発のメモリに直接アクセスするため未知のバグを引き起こす可能性があり、バグを知らせてくれるわけではない</li>
+</ul></li>
+</ul>
+
+<h3 id="空間フィルタ">空間フィルタ</h3>
+
+<ul>
+<li><strong>フィルタ演算</strong>: カーネルと同じ領域に対して、処理を行う
+
+<ul>
+<li>エッジ検出で使用される</li>
+<li>エッジ検出ではフィルタ演算を行う: Sobel(Vertical),Sobel(Horizontal),Laplacian</li>
+<li>ノイズ除去ではフィルタはすべてで1/9などにする; しかし画像全体がぼやけてしまう</li>
+</ul></li>
+</ul>
+
+<h3 id="2値画像処理">2値画像処理</h3>
+
+<ul>
+<li>数を数えるときなどに使用する; 2値化=&gt;ラベリング=&gt;カウント</li>
+<li><strong>ラベリング</strong>
+
+<ul>
+<li>関数がラベリングではないので注意: int cv::connectedComponents()</li>
+</ul></li>
+<li><strong>輪郭線追跡</strong>; 形状を知りたいときとかに使用、どれだけ円に近いのかなど</li>
+<li><strong>直線検出</strong>: y = ax + b のように直線があるかどうかを検出する
+
+<ul>
+<li>y = ax + bに対して原点から垂線を下ろし、ρとΘ（ρ-Θ平面）で表現する(有限の値): 計算機でa,bは無限の値を持つので値を変換する
+　* 点に対する曲線を描画し、重なりによって何本重ねっていれば直線のように判断する</li>
+<li>ハフ変換: <a href="http://www.allisone.co.jp/html/Notes/image/Hough/index.html">直線を検出するHough変換をやさしく解説</a></li>
+</ul></li>
+</ul>
+
+<h3 id="テンプレートマッチング">テンプレートマッチング</h3>
+
+<ul>
+<li>1つのテンプレートでは対処できない</li>
+<li><strong>局所特徴量</strong>: 拡大・縮小・回転に対して変化が少ない部分
+
+<ul>
+<li>SIFTなど</li>
+<li>ディープラーニング以前の考え方</li>
+<li>あくまでルールベースで一般的ではない</li>
+</ul></li>
+</ul>
+
+<h3 id="機械学習による物体認識">機械学習による物体認識</h3>
+
+<ul>
+<li>人間によってハンドクラフトで特徴量を作成する必要がなくなった</li>
+
+<li><p>特徴量を機械自身が獲得する</p></li>
+
+<li><p><strong>物体認識</strong>: 特定物体認識(Identificaiton)と一般物体認識(Classification)に分けられる</p></li>
+
+<li><p><strong>特徴量抽出</strong>: 100*100だと10000次元データが存在し、データとして大きいので、抽象度を上げた特徴量を抽出する(圧縮)</p>
+
+<ul>
+<li>円形度を求める: C = 4*pi*S/(L^2); 円であった場合 L=2*pi*rになるのでC=1となる</li>
+<li>その他の方法: NormalBayesClassifier, KNearest, SVM</li>
+<li>データを持っているほうが有利になっている</li>
+</ul></li>
+</ul>
+
+<h3 id="openclでopencv">OpenCLでOpenCV</h3>
+
+<ul>
+<li>**OpenCL(Open Computing Language): #include <opencv2/core/ocl.hpp>宣言することでGPUを作成できる</li>
+</ul>
+
+<h1 id="質問">質問</h1>
+
+<ul>
+<li>画像処理系の論文は
+=&gt; トップカンファレンスの論文を読む、ICCV, ECCV, CVPR 3強 <a href="http://cvim.ipsj.or.jp/MIRU2019/">MIRU</a>(ミル日本)</li>
+<li>C++で機械学習を使用するときはどうしているのか
+=&gt; 基本C++でしない、一応ある、、</li>
+<li>最新の情報はどこから得ているか
+=&gt; 学会に行って情報収集、MIRUとかで情報収集できる</li>
+<li>画像処理で必要な数式はどのようにして身に着けることができるのか
+=&gt; 線形代数、群論、元、数値計算系が多い、誤差を定義したりする</li>
+<li>C++でtensorflowを使用するにはどうすればいいのか？おすすめのライブラリなど
+=&gt; 結論的に難しい</li>
+<li>画像処理などを考慮した企業で技術的に強い企業は？
+=&gt;</li>
+<li>ファイルにアクセスして処理するときは？
+=&gt; ファイルを読み込むとき、for文でくるんで回す; シェルスクリプトでファイルアクセスを行う</li>
+</ul>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><a href="https://sites.google.com/site/uranishi/opencv_imageprocessing/python_opencv">Yuki Uranishi, Ph.D.</a></li>
+<li>コンピュータビジョンアルゴリズムと応用が良い</li>
+<li><a href="https://www.slideshare.net/uranishi/opencv-64929179">SlideShare資料</a></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Open-Source | <a href="https://github.com/goodroot/hugo-classic">Github</a> | <a href="https://keybase.io/goodroot">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

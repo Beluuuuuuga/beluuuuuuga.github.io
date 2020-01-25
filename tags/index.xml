@@ -6,10 +6,37 @@
     <description>Recent content in Tags on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://beluuuuuuga.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Udemy</title>
+      <link>https://beluuuuuuga.github.io/tags/udemy/</link>
+      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/tags/udemy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenCV</title>
+      <link>https://beluuuuuuga.github.io/tags/opencv/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/tags/opencv/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HUGO</title>
@@ -26,15 +53,6 @@
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/tags/keras/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OpenCV</title>
-      <link>https://beluuuuuuga.github.io/tags/opencv/</link>
-      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/tags/opencv/</guid>
       <description></description>
     </item>
     

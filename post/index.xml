@@ -6,30 +6,49 @@
     <description>Recent content in Posts on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>HUGO</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/23/hugo/</link>
+      <title>Mastering Data Structures &amp; Algorithms using C and C&#43;&#43;</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/25/mastering-data-structures-algorithms-using-c-and-c-/</link>
+      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/25/mastering-data-structures-algorithms-using-c-and-c-/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenCV4を用いた画像処理プログラミング入門</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/24/opencv4%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/24/opencv4%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80/</guid>
+      <description>1.イントロダクション  講師:浦西友樹（うらにし　ゆうき）  どのようにして本を見つけたか？  本はどこにある？などの物体認識は難しい 目から画像を入力→知識から本の特徴を推定→画像から自分の知っている本に似た物体を探す  画像処理・認識技術の応用例  スマイルシャッター:2000年代の商品は課題を簡単にして処理していた。人間の顔は似ているので処理できる アイサイト:限られた状態でしかありえない 問題が一般化すると課題を難しくなる  コンピュータにおけ画像のデータ構造  コンピュータにおける画像は、1画素（ピクセル）の並び スマホですら4K, 2K（800dpi）→普通はどれくらいなのか？ 画素は青・緑・赤が並び正方形 255 = 2^8 - 1 :1画素あたり24(8*3)ビットある: 10000ぐらい 画素密度は50倍ぐらいであるが、1画素は長年変化ない 300dpi(dot / inchi)が人間がアナログデータとデジタルを認識できる限界: 大画面でみるとdpiが下がる: 物理的にテレビの限界がある ディスプレイが明るさを出せる幅は人間が対応できる（知覚できる）幅に対して狭いので24ビットから変化がない  C言語による画像処理プログラミング  データに対するアクセスは配列に対する処理 ビットマップファイルはヘッダに書かれた画像情報を読み取る必要がある（縦1000*横1000 OR 縦1*横10000） エンコードされたデータを扱うためにデータ構造を理解しておく必要がある（デコードするために） ビットマップファイルを読み込んで処理はアップルウォッチでさえできる  OpenCV(Open Conputer Vision Library)  1990年代にIntelが開発していたImageProcessingLibraryが元 Intel→2008 Willow Garage→Intel: 開発者の移動に伴っている BSD(Berkeley Software Distribution)ライセンスに基づいている マルチプロットフォーム(win/linux/mac/ios/and, c/c++/python/java) バックエンドでCPU/GPU 現在2000万ヒットとデファクトスタンダードとなっている ダウンロードトップカントリーはかつてはアメリカ・日本だが、現在は中国がトップ。韓国・日本が３番手を争う CLIではダウンロードカウントされない  OpenCVでできること  画像に関することはなんでもできる  OpenCVの利点  産総研ではspyderやMatlabなどのライブラリがあったが、2000にでてきたOpenCVは簡単である 簡単:インストール方法が確立、最新アルゴリズムも関数を呼び出すことで組み込める ライブラリを用いているが、早い BSDライセンスなので、商用利用であってもライセンス表示するのみで、ソースコードを公開することなく利用できる  OpenCVのバージョンの変遷  2006.</description>
+    </item>
+    
+    <item>
+      <title>HUGOまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/hugo%E3%81%BE%E3%81%A8%E3%82%81/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/post/2020/01/23/hugo/</guid>
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/hugo%E3%81%BE%E3%81%A8%E3%82%81/</guid>
       <description> windowsへのインストール  chocolateyインストールのためにコマンドプロンプトに以下のコマンドを記入
 @&amp;quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&amp;quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &amp;quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&amp;quot; &amp;amp;&amp;amp; SET &amp;quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&amp;quot;  hugoインストール
 choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
   つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった。draft部分を削除すれば.htmlが作成される ファイルを編集していて、サブモジュールのusername.io.gitが更新されない場合、サブモジュールを解除し、再びサブモジュールする。また、.gitが消えてしまってる可能性があるので元のリポジトリからコピーする  Tips  .mdでの論文形式の注釈の付け方
-# 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)   </description>
+# 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)  HOMEでない時の条件式
+{{if ne .IsHome true }}   </description>
     </item>
     
     <item>
-      <title>OpenCV4</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/23/opencv4/</link>
+      <title>OpenCV4環境構築</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/opencv4%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/post/2020/01/23/opencv4/</guid>
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/opencv4%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/</guid>
       <description> Environment Windows  公式からインストール。Releasesを参照*1 展開し環境変数にbinまで登録　C:\OpenCV\OpenCV34\opencv\build\x64\vc14\bin VisualStudioで新しいプロジェクトを作成 プロジェクトのプロパティのインクルードディレクトリ・リンカのライブラリ・入力の依存ファイル(Releaseはdなし、Debugはdあり)を登録 テストを行いビルドし、小さい窓が出れば完了
 #include &amp;lt;opencv2/opencv.hpp&amp;gt; using namespace cv; int main() { Mat image = Mat::zeros(100, 100, CV_8UC3); imshow(&amp;quot;&amp;quot;, image); waitKey(0); }  はまりやすいポイントととして、リンカーの入力ファイルをwindowsのGUI上で見ると.libが消えており、ビルドできなかった
  OpenCV4系でコードを書いているサイトを検索するように心がける。本当はビルドできるのにビルドできてないと怒られたので*5
@@ -37,11 +56,11 @@ choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
     </item>
     
     <item>
-      <title>TensorFlow &amp; Keras</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</link>
+      <title>TensorFlow &amp; Kerasのモデル</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</guid>
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/</guid>
       <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
     </item>
     

@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>TensorFlow &amp; Keras</title>
-      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</link>
+      <title>TensorFlow &amp; Kerasのモデル</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras/</guid>
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/</guid>
       <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
     </item>
     
