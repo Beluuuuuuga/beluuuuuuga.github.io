@@ -6,10 +6,19 @@
     <description>Recent content in Home on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1月振り返り</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/26/1%E6%9C%88%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</link>
+      <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/26/1%E6%9C%88%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</guid>
+      <description> 課題  C++をどこまでのレベルで身に付け、どの様にして身に付けるか？  業務で困らないレベル、競技プログラミングなど通してSTL学ぶ  画像処理も上と同じ  C++は一般的な使い方をマスター、Pythonは深層学習などもマスター   </description>
+    </item>
     
     <item>
       <title>Mastering Data Structures &amp; Algorithms using C and C&#43;&#43;</title>
@@ -17,7 +26,7 @@
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/post/2020/01/25/mastering-data-structures-algorithms-using-c-and-c-/</guid>
-      <description></description>
+      <description> セクション1: Before we Start 1.Instructor&amp;rsquo;s Note  コースの最後にプログラミングをホワイトボードを見ながら自分で実施  2.Introduction  データがなければプログラミングできない データを扱うためにデータ構造を選択する必要がある physical data structure と logical data structureがある データ構造を知らないとITのプロになることができないし、データ構造なしではアプリケーションを作ることはできない データ構造の理解は3段階  1.データ構造とは何かとどの様に動くのかを知る 2.データ構造を詳細に知り、分析する事ができる 3.全てを詳細に知り、自分自身でコーディングする事ができる  すでにプログラミング言語では、データ構造はライブラリで存在しているので、レベル１で十分 再帰はとても大事で、再帰からループに書き換えることもできる  セクション2: Essential C and C++ Concepts 3.Arrays Basics  C and C++のコンセプトを説明 arrayとは整数もしくは小数のデータセット  4.Structures 5.Pointers 6.Reference in C++ 7.Pointer to Structure 8.Functions </description>
     </item>
     
     <item>
