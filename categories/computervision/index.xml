@@ -6,10 +6,20 @@
     <description>Recent content in ComputerVision on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/categories/computervision/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenCV4使い方</title>
+      <link>https://beluuuuuuga.github.io/post/2020/02/04/opencv4%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/02/04/opencv4%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>輪郭描画  一番参考にしたサイト OpenCVのfindContoursを利用した文字切り出し OpenCVは2値画像では白をモノとして認識する 移動する物体を追跡する void findContours(const Mat&amp;amp; image, vector &amp;gt;&amp;amp; contours, int mode, int method, Point offset=Point()) cv::findContours OpenCV4でのグレースケール変換はOpenCV3と異なる Compile error in the examples with OpenCV 4.0.0-alpha 
+#include &amp;lt;opencv2/opencv.hpp&amp;gt; #include &amp;lt;vector&amp;gt; //最小座標を求める cv::Point minPoint(vector&amp;lt;cv::Point&amp;gt; contours) { double minx = contours.at(0).x; double miny = contours.at(0).y; for (int i = 1; i&amp;lt;contours.size(); i++) { if (minx &amp;gt; contours.at(i).x) { minx = contours.at(i).x; } if (miny &amp;gt; contours.at(i).y) { miny = contours.</description>
+    </item>
     
     <item>
       <title>OpenCV4を用いた画像処理プログラミング入門</title>

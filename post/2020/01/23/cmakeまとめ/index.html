@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A simple, minimal blog for those who love text.">
-    <title>Posts | home</title>
+    <title>CMakeまとめ | home</title>
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
     <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
@@ -54,79 +54,111 @@
   <body>
     <br/>
 
+<div class="article-meta">
+<h1><span class="title">CMakeまとめ</span></h1>
+
+<h2 class="date">2020/01/23</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/opensource">OpenSource</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/cmake">CMake</a> 
+  
+  
+</p>
+</div>
+
 
 <div class="content-wrapper">
+  <main>
+    
 
-  <h1>Posts</h1>
-  
+<h1 id="examples">Examples</h1>
 
-  
+<h3 id="source-opencvの場合">Source: OpenCVの場合</h3>
 
-  <ul>
-     
-     
-     
-     <li>
-       <span class="date">2020/02/04</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/02/04/opencv4%E4%BD%BF%E3%81%84%E6%96%B9/">OpenCV4使い方</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/29</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/29/c-%E3%83%A1%E3%83%A2/">C++メモ</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/27</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/27/effective-c-%E7%AC%AC3%E7%89%88/">Effective C++ 第3版</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/26</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/26/1%E6%9C%88%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/">1月振り返り</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/25</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/25/mastering-data-structures-algorithms-using-c-and-c-/">Mastering Data Structures &amp; Algorithms using C and C++</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/24</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/24/opencv4%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80/">OpenCV4を用いた画像処理プログラミング入門</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/cmake%E3%81%BE%E3%81%A8%E3%82%81/">CMakeまとめ</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/hugo%E3%81%BE%E3%81%A8%E3%82%81/">HUGOまとめ</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/opencv4%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89/">OpenCV4環境構築</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/">TensorFlow &amp; Kerasのモデル</a>
-     </li>
-     
-     <li>
-       <span class="date">2020/01/23</span>
-       <a href="https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/">Tensorflow C APIまとめ</a>
-     </li>
-     
-     <li>
-       <span class="date">2018/08/30</span>
-       <a href="https://beluuuuuuga.github.io/post/2018/08/30/markdown-guide-modified/">Markdown Guide (modified)</a>
-     </li>
-     
-   </ul>
+<ul>
+<li><p>CmakeLists.txt</p>
+
+<pre><code>cmake_minimum_required(VERSION 2.8)
+project( DisplayImage )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( DisplayImage DisplayImage.cpp )
+target_link_libraries( DisplayImage ${OpenCV_LIBS} )
+</code></pre></li>
+
+<li><p>DisplayImage.cpp</p>
+
+<pre><code class="language-cpp">#include &quot;opencv2\\opencv.hpp&quot;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+//表示ウィンドウの作成
+cvNamedWindow(&quot;img&quot;);
+//処理後画像データの確保
+IplImage* img = cvCreateImage(cvSize(320,240), IPL_DEPTH_8U, 1);
+//白色
+cvSet(img, cvScalarAll (255), 0);
+//画像の表示
+cvShowImage (&quot;img&quot;, img);
+//キー入力待ち
+cvWaitKey (0);
+//全てのウィンドウの削除
+cvDestroyAllWindows();
+//画像データの解放
+cvReleaseImage(&amp;img);
+return 0;
+}
+</code></pre></li>
+
+<li><p>build/Debug/Display.exeファイルが作成されるので、実行し小さいwindowが作成されれば完了</p>
+
+<pre><code>Debug\DisplayImage.exe
+</code></pre></li>
+</ul>
+
+<h1 id="usages">Usages</h1>
+
+<h3 id="ビルド">ビルド</h3>
+
+<ul>
+<li>buildディレクトリを作成し、移動</li>
+
+<li><p>Visual Studioのバージョンによってビルド方法変更</p>
+
+<ul>
+<li><p>2017の場合、Gの部分を <strong>Visual Studio 15 2017</strong> に変更する</p>
+
+<pre><code>mkdir build
+cd build
+cmake -G &quot;Visual Studio 14 2015&quot; -A x64 ..
+cmake --build . --config Debug
+\Debug\&lt;hoge&gt;.exe
+</code></pre></li>
+</ul></li>
+
+<li><p>ビルド後はbuild内でプロジェクトファイル(.vcxproj)が作成されるので、Visual Studioなどで開く</p></li>
+
+<li><p>Visual Studioでビルドする場合は、プロジェクトを右クリックし、スターティングプロジェクトにして実行</p></li>
+</ul>
+
+<h3 id="コメント">コメント</h3>
+
+<pre><code># comment
+</code></pre>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><a href="https://docs.opencv.org/master/db/df5/tutorial_linux_gcc_cmake.html">Using OpenCV with gcc and CMake</a></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
 </div>
     <footer>
       

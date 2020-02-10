@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://beluuuuuuga.github.io/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://beluuuuuuga.github.io/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://beluuuuuuga.github.io/images/favicon-16x16.png">
+    <link rel="manifest" href="https://beluuuuuuga.github.io/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>Tensorflow C APIまとめ | home</title>
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/">~/home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/tags/">~/tags</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/sites/">~/sites</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">Tensorflow C APIまとめ</span></h1>
+
+<h2 class="date">2020/01/23</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/opensource">OpenSource</a> <a href="https://beluuuuuuga.github.io/categories/machinelearning">MachineLearning</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/tensorflow-c-api">Tensorflow C API</a> <a href="https://beluuuuuuga.github.io/tags/tensorflow">Tensorflow</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    
+
+<p>============</p>
+
+<h1 id="cmake">CMake</h1>
+
+<h3 id="source">Source</h3>
+
+<ul>
+<li><p>OpenCVのディレクトリ・ライブラリをInterfaceプロジェクトに紐づけている</p>
+
+<pre><code>cmake_minimum_required(VERSION 3.6)
+
+project(hello_tf)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+if((CMAKE_CXX_COMPILER_ID MATCHES &quot;GNU&quot;) OR (CMAKE_CXX_COMPILER_ID MATCHES &quot;Clang&quot;))
+set(CMAKE_VERBOSE_MAKEFILE ON)
+add_compile_options(-Wall -Wextra -pedantic-errors -Werror)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES &quot;MSVC&quot;)
+add_compile_options(/W4 /WX)
+if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.11)
+    add_compile_options(/permissive-)
+endif()
+endif()
+
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow)
+make_directory(${CMAKE_SOURCE_DIR}/tensorflow)
+endif()
+
+if(UNIX AND NOT APPLE)
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow)
+    make_directory(${CMAKE_SOURCE_DIR}/tensorflow)
+endif()
+
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/libtensorflow.so)
+    file(
+    DOWNLOAD
+        https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz
+    STATUS
+        status
+    LOG
+        log
+    )
+    list(GET status 0 status_code)
+    list(GET status 1 status_string)
+    if(NOT status_code EQUAL 0)
+        message(FATAL_ERROR &quot;error downloading tensorflow lib: ${status_string}&quot; &quot;${log}&quot;)
+    endif()
+
+    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tensorflow)
+    file(REMOVE ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz)
+endif()
+
+elseif(APPLE)
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow)
+    make_directory(${CMAKE_SOURCE_DIR}/tensorflow)
+endif()
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/libtensorflow.so)
+    file(
+    DOWNLOAD
+        https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-darwin-x86_64-1.15.0.tar.gz ${CMAKE_SOURCE_DIR}/tensorflow/darwin.tar.gz
+    STATUS
+        status
+    LOG
+        log
+    )
+    list(GET status 0 status_code)
+    list(GET status 1 status_string)
+    if(NOT status_code EQUAL 0)
+        message(FATAL_ERROR &quot;error downloading tensorflow lib: ${status_string}&quot; &quot;${log}&quot;)
+    endif()
+
+    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/darwin.tar.gz WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tensorflow)
+    file(REMOVE ${CMAKE_SOURCE_DIR}/tensorflow/darwin.tar.gz)
+endif()
+
+elseif(WIN32)
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow)
+    make_directory(${CMAKE_SOURCE_DIR}/tensorflow)
+endif()
+
+if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/tensorflow.dll)
+    file(
+    DOWNLOAD
+        https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-windows-x86_64-1.15.0.zip ${CMAKE_SOURCE_DIR}/tensorflow/windows.zip
+    STATUS
+        status
+    LOG
+        log
+    )
+    list(GET status 0 status_code)
+    list(GET status 1 status_string)
+    if(NOT status_code EQUAL 0)
+        message(FATAL_ERROR &quot;error downloading tensorflow lib: ${status_string}&quot; &quot;${log}&quot;)
+    endif()
+
+    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/windows.zip WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/tensorflow)
+    file(REMOVE ${CMAKE_SOURCE_DIR}/tensorflow/windows.zip)
+endif()
+
+configure_file(tensorflow/lib/tensorflow.dll ${CMAKE_CURRENT_BINARY_DIR}/tensorflow.dll COPYONLY)
+configure_file(tensorflow/lib/tensorflow.dll ${CMAKE_CURRENT_BINARY_DIR}/test/tensorflow.dll COPYONLY)
+endif()
+
+# OpenCVのディレクトリ・ライブラリを参照
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+target_link_libraries( interface ${OpenCV_LIBS} )
+
+include_directories(tensorflow/include)
+include_directories(src/3rdparty/scope_guard/include)
+link_directories(${CMAKE_SOURCE_DIR}/tensorflow/lib)
+
+add_executable(hello_tf src/hello_tf.cpp)
+target_link_libraries(hello_tf tensorflow)
+
+add_executable(session_run src/session_run.cpp src/tf_utils.cpp src/tf_utils.hpp)
+target_link_libraries(session_run tensorflow)
+
+add_executable(load_graph src/load_graph.cpp)
+target_link_libraries(load_graph tensorflow)
+
+add_executable(interface src/interface.cpp src/tf_utils.cpp src/tf_utils.hpp)
+target_link_libraries(interface tensorflow)
+
+add_executable(graph_info src/graph_info.cpp src/tf_utils.cpp src/tf_utils.hpp)
+target_link_libraries(graph_info tensorflow)
+
+add_executable(create_tensor src/create_tensor.cpp)
+target_link_libraries(create_tensor tensorflow)
+
+add_executable(tensor_info src/tensor_info.cpp src/tf_utils.cpp src/tf_utils.hpp)
+target_link_libraries(tensor_info tensorflow)
+
+add_executable(allocate_tensor src/allocate_tensor.cpp)
+target_link_libraries(allocate_tensor tensorflow)
+
+add_executable(batch_interface src/batch_interface.cpp src/tf_utils.cpp src/tf_utils.hpp)
+target_link_libraries(batch_interface tensorflow)
+
+configure_file(models/graph.pb ${CMAKE_CURRENT_BINARY_DIR}/graph.pb COPYONLY)
+
+enable_testing()
+add_subdirectory(test)
+</code></pre></li>
+</ul>
+
+<h3 id="ビルド">ビルド</h3>
+
+<ul>
+<li>buildディレクトリを作成し、移動</li>
+
+<li><p>Visual Studioのバージョンによってビルド方法変更</p>
+
+<ul>
+<li><p>2017の場合、Gの部分を <strong>Visual Studio 15 2017</strong> に変更する</p>
+
+<pre><code>mkdir build
+cd build
+cmake -G &quot;Visual Studio 14 2015&quot; -A x64 ..
+cmake --build . --config Debug
+</code></pre></li>
+</ul></li>
+
+<li><p>ビルド後はbuild内でプロジェクトファイル(.vcxproj)が作成されるので、Visual Studioなどで開く</p></li>
+
+<li><p>Visual Studioでビルドする場合は、プロジェクトを右クリックし、スターティングプロジェクトにして実行</p></li>
+</ul>
+
+<h1 id="references">References</h1>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Open-Source | <a href="https://github.com/goodroot/hugo-classic">Github</a> | <a href="https://keybase.io/goodroot">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

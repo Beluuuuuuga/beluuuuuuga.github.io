@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://beluuuuuuga.github.io/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://beluuuuuuga.github.io/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://beluuuuuuga.github.io/images/favicon-16x16.png">
+    <link rel="manifest" href="https://beluuuuuuga.github.io/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>C&#43;&#43;メモ | home</title>
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/">~/home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/tags/">~/tags</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/sites/">~/sites</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">C++メモ</span></h1>
+
+<h2 class="date">2020/01/29</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/programming">Programming</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/c&#43;&#43;">C&#43;&#43;</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    
+
+<h3 id="ポインタ">ポインタ</h3>
+
+<ul>
+<li>const char* :データ　変更不可、アドレス　変更可</li>
+<li>char* const :データ　変更可、アドレス　変更不可</li>
+<li>const char* const :データ　変更不可、アドレス　変更不可</li>
+<li>ポインタがさすデータのアクセスは *</li>
+
+<li><p>アドレス代入</p>
+
+<pre><code class="language-cpp">int num = 100
+int *intptr = &amp;num
+</code></pre></li>
+
+<li><p><a href="https://qiita.com/yokoto/items/5672ff20b63815728d90">C++ポインタまとめ</a></p></li>
+</ul>
+
+<h3 id="アロー演算子">アロー演算子</h3>
+
+<ul>
+<li>ポインタを宣言=&gt;newで動的確保=&gt;アロー演算子でアクセス</li>
+<li>変数からのメンバ関数呼び出し=&gt;ドット演算子
+
+<ul>
+<li>オブジェクトはスタック領域</li>
+</ul></li>
+<li>ポインタからのメンバ関数呼び出し=&gt; アロー演算子
+
+<ul>
+<li>オブジェクトはヒープ領域</li>
+</ul></li>
+
+<li><p><a href="https://bituse.info/cp/3">クラスの使い方 </a></p>
+
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;
+
+class TEST {
+public:
+	int figure;
+	void calc(int temp) {
+		figure = temp;
+		std::cout &lt;&lt; temp &lt;&lt; std::endl;
+	}
+};
+
+int main() {
+	TEST *test; // class pointer
+	test = new TEST; //new を使用して動的確保
+	test-&gt;calc(10); // アロー演算子を使用して関数にアクセス
+	std::cout &lt;&lt; test-&gt;figure &lt;&lt; std::endl;
+	delete test;
+	return 0;
+}
+</code></pre></li>
+</ul>
+
+<h3 id="コピーコンストラクタとコピー代入演算子">コピーコンストラクタとコピー代入演算子</h3>
+
+<ul>
+<li><p>使い方</p>
+
+<pre><code>A a;
+a(b); //コピーコンストラクタ
+a = b; //コピー代入演算子
+</code></pre></li>
+
+<li><p>違いとして、コンストラクタの方は初期化で代入演算子の方は関数の引継ぎてきな？</p></li>
+
+<li><p>コピーコンストラクタ</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+
+class A {
+public:
+	A() { cout &lt;&lt; &quot;const A&quot; &lt;&lt; endl;}
+	A(const A &amp;obj) { cout &lt;&lt; &quot;copy const A&quot; &lt;&lt; endl; }
+};
+
+int main()
+{
+	A a1;
+	A a2(a1); // OR A a2 = a1;
+}
+</code></pre></li>
+
+<li><p>代入演算子</p></li>
+
+<li><p><a href="https://www.tutorialspoint.com/cplusplus/assignment_operators_overloading.htm">Assignment Operators Overloading in C++</a></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class A {
+private:
+	int feet, inches;
+public:
+	A() {
+		feet = 0;
+		inches = 0;
+	}
+	A(int f, int i) {
+		feet = f;
+		inches = i;
+	}
+	void operator = (const A &amp;obj) {
+		feet = obj.feet;
+		inches = obj.inches;
+	}
+	void display() {
+		cout &lt;&lt; &quot;feet&quot; &lt;&lt; feet &lt;&lt; &quot;inches&quot; &lt;&lt; inches &lt;&lt; endl;
+	}
+};
+
+int main() {
+	A a1(11, 10);
+	a1.display();
+	A a2(21, 20);
+	a1 = a2;
+	a1.display();
+}
+</code></pre></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Open-Source | <a href="https://github.com/goodroot/hugo-classic">Github</a> | <a href="https://keybase.io/goodroot">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

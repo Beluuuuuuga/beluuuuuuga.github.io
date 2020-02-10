@@ -6,15 +6,24 @@
     <description>Recent content in Tags on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>OpenCV</title>
+      <link>https://beluuuuuuga.github.io/tags/opencv/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/tags/opencv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>C&#43;&#43;</title>
       <link>https://beluuuuuuga.github.io/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/tags/c&#43;&#43;/</guid>
       <description></description>
@@ -30,11 +39,11 @@
     </item>
     
     <item>
-      <title>OpenCV</title>
-      <link>https://beluuuuuuga.github.io/tags/opencv/</link>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      <title>CMake</title>
+      <link>https://beluuuuuuga.github.io/tags/cmake/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://beluuuuuuga.github.io/tags/opencv/</guid>
+      <guid>https://beluuuuuuga.github.io/tags/cmake/</guid>
       <description></description>
     </item>
     
@@ -62,6 +71,15 @@
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow C API</title>
+      <link>https://beluuuuuuga.github.io/tags/tensorflow-c-api/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/tags/tensorflow-c-api/</guid>
       <description></description>
     </item>
     

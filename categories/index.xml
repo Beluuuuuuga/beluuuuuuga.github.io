@@ -6,10 +6,28 @@
     <description>Recent content in Categories on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ComputerVision</title>
+      <link>https://beluuuuuuga.github.io/categories/computervision/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/categories/computervision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://beluuuuuuga.github.io/categories/programming/</link>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
@@ -17,24 +35,6 @@
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://beluuuuuuga.github.io/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
-      <link>https://beluuuuuuga.github.io/categories/programming/</link>
-      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/categories/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ComputerVision</title>
-      <link>https://beluuuuuuga.github.io/categories/computervision/</link>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://beluuuuuuga.github.io/categories/computervision/</guid>
       <description></description>
     </item>
     

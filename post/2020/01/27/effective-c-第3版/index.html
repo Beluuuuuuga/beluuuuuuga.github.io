@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://beluuuuuuga.github.io/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://beluuuuuuga.github.io/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://beluuuuuuga.github.io/images/favicon-16x16.png">
+    <link rel="manifest" href="https://beluuuuuuga.github.io/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple, minimal blog for those who love text.">
+    <title>Effective C&#43;&#43; 第3版 | home</title>
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/style.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/fonts.css" />
+    <link rel="stylesheet" href="https://beluuuuuuga.github.io/css/theme-override.css">
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/">~/home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/tags/">~/tags</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="https://beluuuuuuga.github.io/sites/">~/sites</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">Effective C++ 第3版</span></h1>
+
+<h2 class="date">2020/01/27</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="https://beluuuuuuga.github.io/categories/programming">Programming</a> 
+  
+  
+  
+  Tags: <a href="https://beluuuuuuga.github.io/tags/c&#43;&#43;">C&#43;&#43;</a> 
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    
+
+<h3 id="3項-できるだけconstを使おう">3項　できるだけconstを使おう</h3>
+
+<ul>
+<li><p>constオブジェクトはconstのメンバ関数のみで使用できる 1,2</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+class Sample {
+private:
+	string value;
+public:
+	Sample(const char* a): value(a){}
+	void unconst_func() { cout &lt;&lt; value &lt;&lt; endl; }
+	void const_func() const { cout &lt;&lt; value &lt;&lt; endl; }
+};
+
+int main() {
+	const Sample a(&quot;a&quot;); // constオブジェクト
+	a.unconst_func(); // エラー
+	a.const_func(); // エラーでない
+}
+</code></pre></li>
+</ul>
+
+<h3 id="4項-オブジェクトは-使う前に初期化しよう">4項　オブジェクトは、使う前に初期化しよう</h3>
+
+<h3 id="5項-c-が自動生成-呼び出しするクラスメンバを知っておこう">5項　C++が自動生成・呼び出しするクラスメンバを知っておこう</h3>
+
+<h3 id="6項-コンパイラが自動生成することを望まない関数は-使用を禁止しよう">6項　コンパイラが自動生成することを望まない関数は、使用を禁止しよう</h3>
+
+<ul>
+<li>コピーコンストラクタやコピー代入演算子を望まない場合、基底クラスで禁止しておく</li>
+
+<li><p>方法として、Privateで書く</p>
+
+<pre><code class="language-cc">class Uncopyable
+{
+protected:
+Uncopyable(){}
+~Uncopuable(){}
+private:
+Uncopyable(const Uncopyable&amp;);
+Uncopyable&amp; operator=(const Uncopyable&amp;);
+};
+
+class HomeForSale:private Uncopyable{
+---
+};
+</code></pre></li>
+</ul>
+
+<h3 id="10項-代入演算子-thisへの参照を戻すようにしよう">10項　代入演算子*thisへの参照を戻すようにしよう　</h3>
+
+<ul>
+<li><p>数値などは以下のように自己代入できる</p>
+
+<pre><code class="language-cpp">int main()
+{
+	int x, y, z;
+	x = y = z = 15;
+	cout &lt;&lt; x &lt;&lt; y &lt;&lt; z &lt;&lt; endl; // 151515
+}
+</code></pre></li>
+
+<li><p>自分のクラスに代入する場合、以下のように*<strong>this</strong>をreturnする</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Widget
+{
+public:
+	---
+	Widget&amp; operator=(const Widget&amp; rhs)
+	{
+		-- -
+			return *this;
+	}
+
+};
+</code></pre></li>
+</ul>
+
+<h3 id="11項-operator-の実装では-自己代入に備えよう">11項　operator=の実装では、自己代入に備えよう</h3>
+
+<h3 id="12項-コピーするときは-オブジェクト全体をコピーしよう">12項　コピーするときは、オブジェクト全体をコピーしよう</h3>
+
+<ul>
+<li>コピー関数はオブジェクトのデータメンバーと基底クラスのすべてをコピーするようにする</li>
+</ul>
+
+<h3 id="13項-リソース管理にオブジェクトを使おう">13項　リソース管理にオブジェクトを使おう</h3>
+
+<ul>
+<li>例外処理・return文などでポインタのdeleteが行われないことがある</li>
+<li>リソースをオブジェクトの中に置き、そのオブジェクトが削除されるときに自動的にデストラクタされるようにする</li>
+<li>スマートポインタなどのリソース管理オブジェクトを使用する</li>
+<li>動的に確保した配列に対してはスマートポインタは適用されないので注意</li>
+<li>TR1: Technical Report 1
+
+<ul>
+<li>ISO/IEC TR 19768:2007の非公式名称で、標準C++ライブラリの拡張についての標準規格である</li>
+</ul></li>
+
+<li><p>通常のポインタではdeleteしないとリークとなる</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+	int* ptr = new int(10);
+	for (int i = 0; i &lt; 10; i++)
+	{
+		*ptr += i;
+	}
+	cout &lt;&lt; &quot;ptr=&quot; &lt;&lt; *ptr &lt;&lt; endl;
+	delete ptr;
+	return 0;
+}
+</code></pre></li>
+
+<li><p>スマートポインタではdeleteは必要ない</p></li>
+
+<li><p>auto_ptrではコピーするとコピー先にメモリの所有権が移る</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+using namespace std;
+
+int main() {
+	std::auto_ptr&lt;int&gt; ptr(new int(10));
+	for (int i = 0; i &lt; 10; i++)
+	{
+		*ptr += i;
+	}
+	cout &lt;&lt; &quot;ptr=&quot; &lt;&lt; *ptr &lt;&lt; endl;
+	
+	return 0;
+}
+</code></pre>
+
+<ul>
+<li>uniq_ptrはメモリの所有権は1つだけ</li>
+
+<li><p>shared_ptrは同一メモリの所有権を複数で共有できる</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+using namespace std;
+
+int main() {
+	std::shared_ptr&lt;int&gt; ptr;
+	{
+		std::shared_ptr&lt;int&gt; ptr2(new int(0));
+		ptr = ptr2;
+		*ptr += 10;
+		*ptr2 += 10;
+	}
+	cout &lt;&lt; &quot;ptr=&quot; &lt;&lt; *ptr &lt;&lt; endl;
+}
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h3 id="17項-newで生成したオブジェクトをスマートポインタに渡すのは-独立したステートメントで行うようにしよう">17項　newで生成したオブジェクトをスマートポインタに渡すのは、独立したステートメントで行うようにしよう</h3>
+
+<ul>
+<li><p>スマートポインタにnewで作成したポインタを渡した後に、クラスのコンストラクタを使用する</p>
+
+<pre><code class="language-cpp">std::tr1::shared_ptr&lt;Widget&gt;pw(new Widget);
+processWidget(pw,priority);
+</code></pre></li>
+
+<li><p><a href="https://qiita.com/hmito/items/db3b14917120b285112f">C++11スマートポインタ入門</a></p></li>
+</ul>
+
+<h3 id="18項-インターフェースは-正しく使うときは使いやすく-間違った使い方では使いにくいものにしよう">18項　インターフェースは、正しく使うときは使いやすく、間違った使い方では使いにくいものにしよう</h3>
+
+<ul>
+<li>関数の引数をクラスや構造体を作成し、制限する</li>
+<li>後でもう一度見る</li>
+</ul>
+
+<h3 id="19項-クラスのデザインの型のデザインとして考えよう">19項　クラスのデザインの型のデザインとして考えよう</h3>
+
+<ul>
+<li>いろいろ書いている</li>
+</ul>
+
+<h3 id="20項-値渡しよりconst参照渡しを使おう">20項　値渡しよりconst参照渡しを使おう</h3>
+
+<ul>
+<li><p>オブジェクトを関数の引数とする場合、返り値としてオブジェクトのコピー（コピーコンストラクタ）が返される</p>
+
+<pre><code class="language-cpp">void func(obj a);
+</code></pre></li>
+
+<li><p>スライス問題: 派生クラスを引数として渡すとき、派生部分が切り取られ、基底部分のみが参照される</p></li>
+
+<li><p>int, STLは値渡しで渡されることが考えられている</p></li>
+
+<li><p>組み込み型、STLの反復子、関数オブジェクトは値渡しで、それ以外はconst参照渡し</p></li>
+
+<li><p>スライスされる場合</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Base
+{
+protected: //派生クラスからはアクセスできる
+	int i;
+public:
+	Base(int a) { i = a; }
+	virtual void display()
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; endl;
+	}
+};
+
+class Derived : public Base
+{
+	int j;
+public:
+	Derived(int a, int b) : Base(a) { j = b; }
+	virtual void display()
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; &quot;, j = &quot; &lt;&lt; j &lt;&lt; endl;
+	}
+};
+
+void somefunc(Base obj)
+{
+	obj.display();
+}
+
+int main() {
+	Base b(33);
+	Derived d(45, 54);
+	somefunc(b); // =&gt; I am Base class object, i = 33
+	// Object Slicing, the member j of d is sliced off
+	somefunc(d);  // =&gt; I am Base class object, i = 45
+	return 0;
+}
+</code></pre></li>
+
+<li><p>スライス回避した場合</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Base
+{
+protected: //派生クラスからはアクセスできる
+	int i;
+public:
+	Base(int a) { i = a; }
+	virtual void display()
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; endl;
+	}
+};
+
+class Derived : public Base
+{
+	int j;
+public:
+	Derived(int a, int b) : Base(a) { j = b; }
+	virtual void display()
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; &quot;, j = &quot; &lt;&lt; j &lt;&lt; endl;
+	}
+};
+
+void somefunc(Base &amp;obj)
+{
+	obj.display();
+}
+
+int main() {
+	Base b(33);
+	Derived d(45, 54);
+	somefunc(b); // =&gt; I am Base class object, i = 33
+	// Object Slicing, the member j of d is sliced off
+	somefunc(d);  // =&gt; I am Base class object, i = 45, j = 54
+	return 0;
+}
+</code></pre></li>
+
+<li><p>コンスト参照渡しの場合</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Base
+{
+protected: //派生クラスからはアクセスできる
+	int i;
+public:
+	Base(int a) { i = a; }
+	virtual void display() const
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; endl;
+	}
+};
+
+class Derived : public Base
+{
+	int j;
+public:
+	Derived(int a, int b) : Base(a) { j = b; }
+	virtual void display() const
+	{
+		cout &lt;&lt; &quot;I am Base class object, i = &quot; &lt;&lt; i &lt;&lt; &quot;, j = &quot; &lt;&lt; j &lt;&lt; endl;
+	}
+};
+
+void somefunc(const Base &amp;obj)
+{
+	obj.display();
+}
+
+int main() {
+	Base b(33);
+	Derived d(45, 54);
+	somefunc(b); // =&gt; I am Base class object, i = 33
+	// Object Slicing, the member j of d is sliced off
+	somefunc(d);  // =&gt; I am Base class object, i = 45, j = 54
+	return 0;
+}
+</code></pre></li>
+
+<li><p>ポインタを使用することでもスライス問題を回避できる</p>
+
+<pre><code class="language-cpp">void somefunc(Base *objp)
+{
+	objp-&gt;display();
+}
+
+int main() {
+	Base *bp = new Base(33);
+	Derived *dp = new Derived(45, 54);
+	somefunc(bp); // =&gt; I am Base class object, i = 33
+	// Object Slicing, the member j of d is sliced off
+	somefunc(dp);  // =&gt; I am Base class object, i = 45, j = 54
+	return 0;
+}
+</code></pre></li>
+
+<li><p><a href="geeksforgeeks.org/object-slicing-in-c/">Object Slicing in C++</a></p></li>
+</ul>
+
+<h3 id="21項-オブジェクトを戻すべき時に参照を戻そうとしないこと">21項　オブジェクトを戻すべき時に参照を戻そうとしないこと</h3>
+
+<h3 id="参照">参照</h3>
+
+<ul>
+<li><a href=#3a>*1</a>:<a href="http://www002.upp.so-net.ne.jp/ys_oota/effec/chapter4.htm#21kou">～　第４章　クラスと関数：その設計と宣言　～</a></li>
+<li><a href=#3b>*2</a>:<a href="http://www7b.biglobe.ne.jp/~robe/cpphtml/html02/cpp02010.html">第１０章　不動の構え</a></li>
+<li><a href="http://www002.upp.so-net.ne.jp/ys_oota/effec/">C++ビギナーに捧ぐ　EffectiveC++入門</a></li>
+<li><a href="https://qiita.com/MoriokaReimen/items/58f183d421bb932cbbda">Effective C++（項1〜5）解説</a></li>
+</ul>
+
+    <a href="https://beluuuuuuga.github.io/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      Open-Source | <a href="https://github.com/goodroot/hugo-classic">Github</a> | <a href="https://keybase.io/goodroot">Keybase</a>
+      
+    </footer>
+  </body>
+</html>
+

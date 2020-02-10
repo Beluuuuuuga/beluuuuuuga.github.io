@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>CMakeまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/cmake%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/cmake%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description>Examples Source: OpenCVの場合  CmakeLists.txt
+cmake_minimum_required(VERSION 2.8) project( DisplayImage ) find_package( OpenCV REQUIRED ) include_directories( ${OpenCV_INCLUDE_DIRS} ) add_executable( DisplayImage DisplayImage.cpp ) target_link_libraries( DisplayImage ${OpenCV_LIBS} )  DisplayImage.cpp
+#include &amp;quot;opencv2\\opencv.hpp&amp;quot; int _tmain(int argc, _TCHAR* argv[]) { //表示ウィンドウの作成 cvNamedWindow(&amp;quot;img&amp;quot;); //処理後画像データの確保 IplImage* img = cvCreateImage(cvSize(320,240), IPL_DEPTH_8U, 1); //白色 cvSet(img, cvScalarAll (255), 0); //画像の表示 cvShowImage (&amp;quot;img&amp;quot;, img); //キー入力待ち cvWaitKey (0); //全てのウィンドウの削除 cvDestroyAllWindows(); //画像データの解放 cvReleaseImage(&amp;amp;img); return 0; }  build/Debug/Display.exeファイルが作成されるので、実行し小さいwindowが作成されれば完了
+Debug\DisplayImage.exe   Usages ビルド  buildディレクトリを作成し、移動 Visual Studioのバージョンによってビルド方法変更</description>
+    </item>
+    
+    <item>
       <title>HUGOまとめ</title>
       <link>https://beluuuuuuga.github.io/post/2020/01/23/hugo%E3%81%BE%E3%81%A8%E3%82%81/</link>
       <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
@@ -23,6 +35,17 @@ choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
   つまりそうな部分  .mdファイルの中でdraft:true（下書き状態）にして.htmlが生成されなかった。draft部分を削除すれば.htmlが作成される ファイルを編集していて、サブモジュールのusername.io.gitが更新されない場合、サブモジュールを解除し、再びサブモジュールする。また、.gitが消えてしまってる可能性があるので元のリポジトリからコピーする  Tips  .mdでの論文形式の注釈の付け方
 # 上に番号をつける &amp;lt;sup&amp;gt;&amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;&amp;lt;sup&amp;gt; # 下のリファレンス &amp;lt;a href=#1&amp;gt;*1&amp;lt;/a&amp;gt;:[Name](URL)  HOMEでない時の条件式
 {{if ne .IsHome true }}   </description>
+    </item>
+    
+    <item>
+      <title>Tensorflow C APIまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description>============
+CMake Source  OpenCVのディレクトリ・ライブラリをInterfaceプロジェクトに紐づけている
+cmake_minimum_required(VERSION 3.6) project(hello_tf) set(CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON) set(CMAKE_CXX_EXTENSIONS OFF) if((CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;GNU&amp;quot;) OR (CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;Clang&amp;quot;)) set(CMAKE_VERBOSE_MAKEFILE ON) add_compile_options(-Wall -Wextra -pedantic-errors -Werror) elseif(CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;MSVC&amp;quot;) add_compile_options(/W4 /WX) if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.11) add_compile_options(/permissive-) endif() endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if(UNIX AND NOT APPLE) if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/libtensorflow.so) file( DOWNLOAD https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz STATUS status LOG log ) list(GET status 0 status_code) list(GET status 1 status_string) if(NOT status_code EQUAL 0) message(FATAL_ERROR &amp;quot;error downloading tensorflow lib: ${status_string}&amp;quot; &amp;quot;${log}&amp;quot;) endif() execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/linux.</description>
     </item>
     
   </channel>

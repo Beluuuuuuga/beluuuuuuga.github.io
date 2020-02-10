@@ -20,5 +20,16 @@
       <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
     </item>
     
+    <item>
+      <title>Tensorflow C APIまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description>============
+CMake Source  OpenCVのディレクトリ・ライブラリをInterfaceプロジェクトに紐づけている
+cmake_minimum_required(VERSION 3.6) project(hello_tf) set(CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON) set(CMAKE_CXX_EXTENSIONS OFF) if((CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;GNU&amp;quot;) OR (CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;Clang&amp;quot;)) set(CMAKE_VERBOSE_MAKEFILE ON) add_compile_options(-Wall -Wextra -pedantic-errors -Werror) elseif(CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;MSVC&amp;quot;) add_compile_options(/W4 /WX) if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.11) add_compile_options(/permissive-) endif() endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if(UNIX AND NOT APPLE) if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/libtensorflow.so) file( DOWNLOAD https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz STATUS status LOG log ) list(GET status 0 status_code) list(GET status 1 status_string) if(NOT status_code EQUAL 0) message(FATAL_ERROR &amp;quot;error downloading tensorflow lib: ${status_string}&amp;quot; &amp;quot;${log}&amp;quot;) endif() execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/linux.</description>
+    </item>
+    
   </channel>
 </rss>

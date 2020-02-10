@@ -6,10 +6,32 @@
     <description>Recent content in Programming on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;メモ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/29/c-%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/29/c-%E3%83%A1%E3%83%A2/</guid>
+      <description>ポインタ  const char* :データ　変更不可、アドレス　変更可 char* const :データ　変更可、アドレス　変更不可 const char* const :データ　変更不可、アドレス　変更不可 ポインタがさすデータのアクセスは * アドレス代入
+int num = 100 int *intptr = &amp;amp;num  C++ポインタまとめ
+  アロー演算子  ポインタを宣言=&amp;gt;newで動的確保=&amp;gt;アロー演算子でアクセス 変数からのメンバ関数呼び出し=&amp;gt;ドット演算子  オブジェクトはスタック領域  ポインタからのメンバ関数呼び出し=&amp;gt; アロー演算子  オブジェクトはヒープ領域  クラスの使い方 
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;iostream&amp;gt; class TEST { public: int figure; void calc(int temp) { figure = temp; std::cout &amp;lt;&amp;lt; temp &amp;lt;&amp;lt; std::endl; } }; int main() { TEST *test; // class pointer test = new TEST; //new を使用して動的確保 test-&amp;gt;calc(10); // アロー演算子を使用して関数にアクセス std::cout &amp;lt;&amp;lt; test-&amp;gt;figure &amp;lt;&amp;lt; std::endl; delete test; return 0; }   コピーコンストラクタとコピー代入演算子  使い方</description>
+    </item>
+    
+    <item>
+      <title>Effective C&#43;&#43; 第3版</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/27/effective-c-%E7%AC%AC3%E7%89%88/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/27/effective-c-%E7%AC%AC3%E7%89%88/</guid>
+      <description>3項　できるだけconstを使おう  constオブジェクトはconstのメンバ関数のみで使用できる 1,2
+#include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; class Sample { private: string value; public: Sample(const char* a): value(a){} void unconst_func() { cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; endl; } void const_func() const { cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; endl; } }; int main() { const Sample a(&amp;quot;a&amp;quot;); // constオブジェクト a.unconst_func(); // エラー a.const_func(); // エラーでない }   4項　オブジェクトは、使う前に初期化しよう 5項　C++が自動生成・呼び出しするクラスメンバを知っておこう 6項　コンパイラが自動生成することを望まない関数は、使用を禁止しよう  コピーコンストラクタやコピー代入演算子を望まない場合、基底クラスで禁止しておく 方法として、Privateで書く</description>
+    </item>
     
     <item>
       <title>Mastering Data Structures &amp; Algorithms using C and C&#43;&#43;</title>

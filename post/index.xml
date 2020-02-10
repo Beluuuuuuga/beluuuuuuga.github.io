@@ -6,10 +6,42 @@
     <description>Recent content in Posts on home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://beluuuuuuga.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenCV4使い方</title>
+      <link>https://beluuuuuuga.github.io/post/2020/02/04/opencv4%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/02/04/opencv4%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>輪郭描画  一番参考にしたサイト OpenCVのfindContoursを利用した文字切り出し OpenCVは2値画像では白をモノとして認識する 移動する物体を追跡する void findContours(const Mat&amp;amp; image, vector &amp;gt;&amp;amp; contours, int mode, int method, Point offset=Point()) cv::findContours OpenCV4でのグレースケール変換はOpenCV3と異なる Compile error in the examples with OpenCV 4.0.0-alpha 
+#include &amp;lt;opencv2/opencv.hpp&amp;gt; #include &amp;lt;vector&amp;gt; //最小座標を求める cv::Point minPoint(vector&amp;lt;cv::Point&amp;gt; contours) { double minx = contours.at(0).x; double miny = contours.at(0).y; for (int i = 1; i&amp;lt;contours.size(); i++) { if (minx &amp;gt; contours.at(i).x) { minx = contours.at(i).x; } if (miny &amp;gt; contours.at(i).y) { miny = contours.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;メモ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/29/c-%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/29/c-%E3%83%A1%E3%83%A2/</guid>
+      <description>ポインタ  const char* :データ　変更不可、アドレス　変更可 char* const :データ　変更可、アドレス　変更不可 const char* const :データ　変更不可、アドレス　変更不可 ポインタがさすデータのアクセスは * アドレス代入
+int num = 100 int *intptr = &amp;amp;num  C++ポインタまとめ
+  アロー演算子  ポインタを宣言=&amp;gt;newで動的確保=&amp;gt;アロー演算子でアクセス 変数からのメンバ関数呼び出し=&amp;gt;ドット演算子  オブジェクトはスタック領域  ポインタからのメンバ関数呼び出し=&amp;gt; アロー演算子  オブジェクトはヒープ領域  クラスの使い方 
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;iostream&amp;gt; class TEST { public: int figure; void calc(int temp) { figure = temp; std::cout &amp;lt;&amp;lt; temp &amp;lt;&amp;lt; std::endl; } }; int main() { TEST *test; // class pointer test = new TEST; //new を使用して動的確保 test-&amp;gt;calc(10); // アロー演算子を使用して関数にアクセス std::cout &amp;lt;&amp;lt; test-&amp;gt;figure &amp;lt;&amp;lt; std::endl; delete test; return 0; }   コピーコンストラクタとコピー代入演算子  使い方</description>
+    </item>
+    
+    <item>
+      <title>Effective C&#43;&#43; 第3版</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/27/effective-c-%E7%AC%AC3%E7%89%88/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/27/effective-c-%E7%AC%AC3%E7%89%88/</guid>
+      <description>3項　できるだけconstを使おう  constオブジェクトはconstのメンバ関数のみで使用できる 1,2
+#include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; class Sample { private: string value; public: Sample(const char* a): value(a){} void unconst_func() { cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; endl; } void const_func() const { cout &amp;lt;&amp;lt; value &amp;lt;&amp;lt; endl; } }; int main() { const Sample a(&amp;quot;a&amp;quot;); // constオブジェクト a.unconst_func(); // エラー a.const_func(); // エラーでない }   4項　オブジェクトは、使う前に初期化しよう 5項　C++が自動生成・呼び出しするクラスメンバを知っておこう 6項　コンパイラが自動生成することを望まない関数は、使用を禁止しよう  コピーコンストラクタやコピー代入演算子を望まない場合、基底クラスで禁止しておく 方法として、Privateで書く</description>
+    </item>
     
     <item>
       <title>1月振り返り</title>
@@ -36,6 +68,18 @@
       
       <guid>https://beluuuuuuga.github.io/post/2020/01/24/opencv4%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80/</guid>
       <description>1.イントロダクション  講師:浦西友樹（うらにし　ゆうき）  どのようにして本を見つけたか？  本はどこにある？などの物体認識は難しい 目から画像を入力→知識から本の特徴を推定→画像から自分の知っている本に似た物体を探す  画像処理・認識技術の応用例  スマイルシャッター:2000年代の商品は課題を簡単にして処理していた。人間の顔は似ているので処理できる アイサイト:限られた状態でしかありえない 問題が一般化すると課題を難しくなる  コンピュータにおけ画像のデータ構造  コンピュータにおける画像は、1画素（ピクセル）の並び スマホですら4K, 2K（800dpi）→普通はどれくらいなのか？ 画素は青・緑・赤が並び正方形 255 = 2^8 - 1 :1画素あたり24(8*3)ビットある: 10000ぐらい 画素密度は50倍ぐらいであるが、1画素は長年変化ない 300dpi(dot / inchi)が人間がアナログデータとデジタルを認識できる限界: 大画面でみるとdpiが下がる: 物理的にテレビの限界がある ディスプレイが明るさを出せる幅は人間が対応できる（知覚できる）幅に対して狭いので24ビットから変化がない  C言語による画像処理プログラミング  データに対するアクセスは配列に対する処理 ビットマップファイルはヘッダに書かれた画像情報を読み取る必要がある（縦1000*横1000 OR 縦1*横10000） エンコードされたデータを扱うためにデータ構造を理解しておく必要がある（デコードするために） ビットマップファイルを読み込んで処理はアップルウォッチでさえできる  OpenCV(Open Conputer Vision Library)  1990年代にIntelが開発していたImageProcessingLibraryが元 Intel→2008 Willow Garage→Intel: 開発者の移動に伴っている BSD(Berkeley Software Distribution)ライセンスに基づいている マルチプロットフォーム(win/linux/mac/ios/and, c/c++/python/java) バックエンドでCPU/GPU 現在2000万ヒットとデファクトスタンダードとなっている ダウンロードトップカントリーはかつてはアメリカ・日本だが、現在は中国がトップ。韓国・日本が３番手を争う CLIではダウンロードカウントされない  OpenCVでできること  画像に関することはなんでもできる  OpenCVの利点  産総研ではspyderやMatlabなどのライブラリがあったが、2000にでてきたOpenCVは簡単である 簡単:インストール方法が確立、最新アルゴリズムも関数を呼び出すことで組み込める ライブラリを用いているが、早い BSDライセンスなので、商用利用であってもライセンス表示するのみで、ソースコードを公開することなく利用できる  OpenCVのバージョンの変遷  2006.</description>
+    </item>
+    
+    <item>
+      <title>CMakeまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/cmake%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/cmake%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description>Examples Source: OpenCVの場合  CmakeLists.txt
+cmake_minimum_required(VERSION 2.8) project( DisplayImage ) find_package( OpenCV REQUIRED ) include_directories( ${OpenCV_INCLUDE_DIRS} ) add_executable( DisplayImage DisplayImage.cpp ) target_link_libraries( DisplayImage ${OpenCV_LIBS} )  DisplayImage.cpp
+#include &amp;quot;opencv2\\opencv.hpp&amp;quot; int _tmain(int argc, _TCHAR* argv[]) { //表示ウィンドウの作成 cvNamedWindow(&amp;quot;img&amp;quot;); //処理後画像データの確保 IplImage* img = cvCreateImage(cvSize(320,240), IPL_DEPTH_8U, 1); //白色 cvSet(img, cvScalarAll (255), 0); //画像の表示 cvShowImage (&amp;quot;img&amp;quot;, img); //キー入力待ち cvWaitKey (0); //全てのウィンドウの削除 cvDestroyAllWindows(); //画像データの解放 cvReleaseImage(&amp;amp;img); return 0; }  build/Debug/Display.exeファイルが作成されるので、実行し小さいwindowが作成されれば完了
+Debug\DisplayImage.exe   Usages ビルド  buildディレクトリを作成し、移動 Visual Studioのバージョンによってビルド方法変更</description>
     </item>
     
     <item>
@@ -71,6 +115,17 @@ choco install hugo -confirm  hugo.exeのフォルダを環境変数に保存
       
       <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-keras%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB/</guid>
       <description>Knowledge Model  Tensorflowのモデルはmodel-ckpt.meta, model-ckpt.data-0000-of-00001, model-ckpt.index, checkpointの4つの変数を持つ*1 ウェブサイトなどでデプロイするときに一つにまとめた.pbファイルにする kerasで保存する対象とそのコード。くわしくは下記サイトを参照*2     保存の関数 読み込みの関数 対象(拡張子)     model.save(&amp;lsquo;hoge.h5&amp;rsquo;) model = load_model(&amp;lsquo;hoge.h5&amp;rsquo;) アーキテクチャ + 重み + オプティマイザの状態（.hdf5 or .h）   json_string = model.to_json() model = model_from_json(json_string) モデルのアーキテクチャ（weightパラメータや学習時の設定は含まない）(.json or .yml)   model.save_weights(&amp;lsquo;hoge.h5&amp;rsquo;) model.load_weights(&amp;lsquo;hoge.h5&amp;rsquo;) モデルの重みのみ(.hdf5 or .h)    References  *1:Freeze Tensorflow models and serve on web *2:Keras FAQ: Kerasに関するよくある質問  TF2.0 Model save and load  .</description>
+    </item>
+    
+    <item>
+      <title>Tensorflow C APIまとめ</title>
+      <link>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://beluuuuuuga.github.io/post/2020/01/23/tensorflow-c-api%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description>============
+CMake Source  OpenCVのディレクトリ・ライブラリをInterfaceプロジェクトに紐づけている
+cmake_minimum_required(VERSION 3.6) project(hello_tf) set(CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON) set(CMAKE_CXX_EXTENSIONS OFF) if((CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;GNU&amp;quot;) OR (CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;Clang&amp;quot;)) set(CMAKE_VERBOSE_MAKEFILE ON) add_compile_options(-Wall -Wextra -pedantic-errors -Werror) elseif(CMAKE_CXX_COMPILER_ID MATCHES &amp;quot;MSVC&amp;quot;) add_compile_options(/W4 /WX) if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.11) add_compile_options(/permissive-) endif() endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if(UNIX AND NOT APPLE) if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow) make_directory(${CMAKE_SOURCE_DIR}/tensorflow) endif() if (NOT EXISTS ${CMAKE_SOURCE_DIR}/tensorflow/lib/libtensorflow.so) file( DOWNLOAD https://github.com/Neargye/tensorflow/releases/download/v1.15.0/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz ${CMAKE_SOURCE_DIR}/tensorflow/linux.tar.gz STATUS status LOG log ) list(GET status 0 status_code) list(GET status 1 status_string) if(NOT status_code EQUAL 0) message(FATAL_ERROR &amp;quot;error downloading tensorflow lib: ${status_string}&amp;quot; &amp;quot;${log}&amp;quot;) endif() execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvzf ${CMAKE_SOURCE_DIR}/tensorflow/linux.</description>
     </item>
     
     <item>
